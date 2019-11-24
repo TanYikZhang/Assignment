@@ -18,6 +18,7 @@ public class RegisterPage extends AppCompatActivity {
     private TextView WarningEmail,WarningFullName,WarningPhoneNumber,WarningPassword,WarningConfirmPassword;
     private Button btnRegister,btnCancel;
     private boolean TOF=true;
+    private String fullname,email,number,password,confirmpassword;
 
 
     public void onCreate(Bundle savedInstanceState) {
@@ -43,8 +44,6 @@ public class RegisterPage extends AppCompatActivity {
 
         btnRegister = findViewById(R.id.btn_register);
         btnCancel = findViewById(R.id.btn_cancel);
-
-
     }
 
     private void setListeners(){
@@ -54,10 +53,10 @@ public class RegisterPage extends AppCompatActivity {
                 Validate();
                 if (TOF){
                     Toast.makeText(RegisterPage.this, "Register Successfully", Toast.LENGTH_LONG).show();
-                    //call to database//
+                    //add to database//
 
 
-                    //call to database//
+                    //add to database//
                     Intent i = new Intent(RegisterPage.this, LoginPage.class);
                     startActivity(i);
                     finish();
@@ -89,7 +88,7 @@ public class RegisterPage extends AppCompatActivity {
     }
 
     private void CheckFullname(){
-        String fullname = RegFullName.getText().toString();
+        fullname = RegFullName.getText().toString();
         if (fullname.equals("")){
             WarningFullName.setText("Full Name is Required");
             TOF=false;
@@ -99,7 +98,7 @@ public class RegisterPage extends AppCompatActivity {
     }
 
     private void CheckEmail(){
-        String email = RegEmail.getText().toString();
+        email = RegEmail.getText().toString();
         if (email.equals("")){
             WarningEmail.setText("Email is Required");
             TOF=false;
@@ -123,14 +122,19 @@ public class RegisterPage extends AppCompatActivity {
         else if (email.contains("@.")||email.contains(".@")){
             WarningEmail.setText("The @ and . cannot be together");
             TOF=false;
-        }else {
+        }else if (email!=""){
+            /////////Database//////////
+
+            /////////Database//////////
+        }
+        else {
             WarningEmail.setText("");
         }
 
     }
 
     private void CheckPhoneNumber(){
-        String number = RegPhoneNumber.getText().toString();
+        number = RegPhoneNumber.getText().toString();
 
         if (number==""){
             WarningPhoneNumber.setText("Phone Number is Required");
@@ -149,7 +153,7 @@ public class RegisterPage extends AppCompatActivity {
     }
 
     private void CheckPassword(){
-        String password = RegPassword.getText().toString();
+        password = RegPassword.getText().toString();
 
         if (password.equals("")){
             WarningPassword.setText("Password is Required");
@@ -166,8 +170,8 @@ public class RegisterPage extends AppCompatActivity {
     }
 
     private void CheckConfirmPassword(){
-        String password = RegPassword.getText().toString();
-        String confirmpassword = RegConfirmPassword.getText().toString();
+        password = RegPassword.getText().toString();
+        confirmpassword = RegConfirmPassword.getText().toString();
 
         if (confirmpassword.equals("")){
             WarningConfirmPassword.setText("Confirm Password is Required");
