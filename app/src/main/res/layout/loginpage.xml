@@ -124,7 +124,7 @@
         android:textAllCaps="true"
         android:textColor="#FFFFFF"
         android:fontFamily="sans-serif-black"
-        android:background="#990000"
+        android:background="@color/colorDarkRed"
         />
 
     <TextView

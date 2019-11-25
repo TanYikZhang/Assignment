@@ -2,56 +2,60 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
     android:gravity="center"
-    tools:context=".RegisterPage"
-    android:background="#000000">
+    android:orientation="vertical"
+    tools:context=".RegisterPage">
 
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
-
-
-    <TextView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:layout_gravity="center"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:text="⦯THUNDER⦬"
-        android:textColor="#FFFFFF"/>
-    <ImageView
-        android:layout_width="144dp"
-        android:layout_height="102dp"
-        android:background="@drawable/logo"/>
+        android:orientation="vertical">
 
-</LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:text="⦯THUNDER⦬"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="144dp"
+            android:layout_height="102dp"
+            android:background="@drawable/logo" />
+
+    </LinearLayout>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:gravity="center"
-        android:textStyle="bold"
-        android:textSize="30sp"
         android:text="NEW CUSTOMER"
-        android:textColor="#FFFFFF"/>
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/rounded_outer"
             android:gravity="center"
-            android:orientation="vertical"
-            android:background="@drawable/rounded_outer">
+            android:orientation="vertical">
 
             <com.example.assignment.EditText.SuperEditText
                 android:id="@+id/edit_signupemail"
@@ -59,60 +63,59 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
 
+                android:layout_marginLeft="1dp"
+
+                android:layout_marginRight="1dp"
+                android:background="@drawable/rounded_text"
+
                 android:hint="Email"
-
-                android:textAlignment="center"
-                android:textSize="20sp"
-
-                android:paddingTop="5dp"
                 android:paddingLeft="5dp"
-                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
                 android:paddingRight="5dp"
 
-                android:layout_marginLeft="1dp"
-                android:layout_marginRight="1dp"
+                android:paddingBottom="5dp"
+                android:textAlignment="center"
 
-                android:background="@drawable/rounded_text"
+                android:textSize="20sp"
+
+                app:cursor="@drawable/cursor"
+                app:delete_height="80"
+                app:delete_width="80"
+                app:delete_x="0"
+                app:delete_y="0"
+                app:ic_delete="@drawable/delete"
 
                 app:ic_left_click="@drawable/email_click"
                 app:ic_left_unclick="@drawable/email_unclick"
-                app:left_x="0"
-                app:left_y="0"
-                app:left_width="60"
                 app:left_height="60"
+                app:left_width="60"
+                app:left_x="0"
 
-                app:ic_delete="@drawable/delete"
-                app:delete_x="0"
-                app:delete_y="0"
-                app:delete_width="80"
-                app:delete_height="80"
-
+                app:left_y="0"
                 app:lineColor_click="@color/colorfocus"
                 app:lineColor_unclick="@color/colorDefault"
-                app:linePosition="1"
 
-                app:cursor="@drawable/cursor"
-                />
+                app:linePosition="1" />
         </LinearLayout>
+
         <TextView
-                android:id="@+id/warningemail"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                tools:text="Email is Required"
-                android:textColor="@color/colorRed"
-                android:fontFamily="sans-serif-black"
-                android:gravity="right"
-            />
+            android:id="@+id/warningemail"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:gravity="right"
+            android:textColor="@color/colorRed"
+            tools:text="Email is Required" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/rounded_outer"
             android:gravity="center"
-            android:orientation="vertical"
-            android:background="@drawable/rounded_outer">
+            android:orientation="vertical">
 
             <com.example.assignment.EditText.SuperEditText
                 android:id="@+id/edit_signupfullname"
@@ -120,268 +123,263 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
 
+                android:layout_marginLeft="1dp"
+
+                android:layout_marginRight="1dp"
+                android:background="@drawable/rounded_text"
+
                 android:hint="Full Name"
-
-                android:textAlignment="center"
-                android:textSize="20sp"
-
-                android:paddingTop="5dp"
                 android:paddingLeft="5dp"
-                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
                 android:paddingRight="5dp"
 
-                android:layout_marginLeft="1dp"
-                android:layout_marginRight="1dp"
+                android:paddingBottom="5dp"
+                android:textAlignment="center"
 
-                android:background="@drawable/rounded_text"
+                android:textSize="20sp"
+
+                app:cursor="@drawable/cursor"
+                app:delete_height="80"
+                app:delete_width="80"
+                app:delete_x="0"
+                app:delete_y="0"
+                app:ic_delete="@drawable/delete"
 
                 app:ic_left_click="@drawable/name_click"
                 app:ic_left_unclick="@drawable/name_unclick"
-                app:left_x="0"
-                app:left_y="0"
-                app:left_width="60"
                 app:left_height="60"
+                app:left_width="60"
+                app:left_x="0"
 
-                app:ic_delete="@drawable/delete"
-                app:delete_x="0"
-                app:delete_y="0"
-                app:delete_width="80"
-                app:delete_height="80"
-
+                app:left_y="0"
                 app:lineColor_click="@color/colorfocus"
                 app:lineColor_unclick="@color/colorDefault"
-                app:linePosition="1"
 
-                app:cursor="@drawable/cursor"
-                />
+                app:linePosition="1" />
         </LinearLayout>
+
         <TextView
-                android:id="@+id/warningfullname"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                tools:text="Full Name is Required"
-                android:textColor="@color/colorRed"
-                android:fontFamily="sans-serif-black"
-                android:gravity="right"
-                    />
+            android:id="@+id/warningfullname"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:gravity="right"
+            android:textColor="@color/colorRed"
+            tools:text="Full Name is Required" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/rounded_outer"
             android:gravity="center"
-            android:orientation="vertical"
-            android:background="@drawable/rounded_outer">
+            android:orientation="vertical">
 
             <com.example.assignment.EditText.SuperEditText
                 android:id="@+id/edit_signupphone"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:inputType="number"
-
-                android:hint="Phone number"
-
-                android:textAlignment="center"
-                android:textSize="20sp"
-
-                android:paddingTop="5dp"
-                android:paddingLeft="5dp"
-                android:paddingBottom="5dp"
-                android:paddingRight="5dp"
-
                 android:layout_marginLeft="1dp"
+
                 android:layout_marginRight="1dp"
 
                 android:background="@drawable/rounded_text"
+                android:hint="Phone number"
+
+                android:inputType="number"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:paddingRight="5dp"
+
+                android:paddingBottom="5dp"
+                android:textAlignment="center"
+
+                android:textSize="20sp"
+
+                app:cursor="@drawable/cursor"
+                app:delete_height="80"
+                app:delete_width="80"
+                app:delete_x="0"
+                app:delete_y="0"
+                app:ic_delete="@drawable/delete"
 
                 app:ic_left_click="@drawable/phone_click"
                 app:ic_left_unclick="@drawable/phone_unclick"
-                app:left_x="0"
-                app:left_y="0"
-                app:left_width="60"
                 app:left_height="60"
+                app:left_width="60"
+                app:left_x="0"
 
-                app:ic_delete="@drawable/delete"
-                app:delete_x="0"
-                app:delete_y="0"
-                app:delete_width="80"
-                app:delete_height="80"
-
+                app:left_y="0"
                 app:lineColor_click="@color/colorfocus"
                 app:lineColor_unclick="@color/colorDefault"
-                app:linePosition="1"
 
-                app:cursor="@drawable/cursor"
-                />
+                app:linePosition="1" />
         </LinearLayout>
+
         <TextView
             android:id="@+id/warningphonenumber"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            tools:text="Phone number is Required"
-            android:textColor="@color/colorRed"
             android:fontFamily="sans-serif-black"
             android:gravity="right"
-            />
+            android:textColor="@color/colorRed"
+            tools:text="Phone number is Required" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/rounded_outer"
             android:gravity="center"
-            android:orientation="vertical"
-            android:background="@drawable/rounded_outer">
+            android:orientation="vertical">
 
             <com.example.assignment.EditText.SuperEditText
                 android:id="@+id/edit_signuppassword"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:inputType="textPassword"
-
-                android:hint="Password"
-
-                android:textAlignment="center"
-                android:textSize="20sp"
-
-                android:paddingTop="5dp"
-                android:paddingLeft="5dp"
-                android:paddingBottom="5dp"
-                android:paddingRight="5dp"
-
                 android:layout_marginLeft="1dp"
+
                 android:layout_marginRight="1dp"
 
                 android:background="@drawable/rounded_text"
+                android:hint="Password"
+
+                android:inputType="textPassword"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:paddingRight="5dp"
+
+                android:paddingBottom="5dp"
+                android:textAlignment="center"
+
+                android:textSize="20sp"
+
+                app:cursor="@drawable/cursor"
+                app:delete_height="80"
+                app:delete_width="80"
+                app:delete_x="0"
+                app:delete_y="0"
+                app:ic_delete="@drawable/delete"
 
                 app:ic_left_click="@drawable/password2_click"
                 app:ic_left_unclick="@drawable/password2_unclick"
-                app:left_x="0"
-                app:left_y="0"
-                app:left_width="60"
                 app:left_height="60"
+                app:left_width="60"
+                app:left_x="0"
 
-                app:ic_delete="@drawable/delete"
-                app:delete_x="0"
-                app:delete_y="0"
-                app:delete_width="80"
-                app:delete_height="80"
-
+                app:left_y="0"
                 app:lineColor_click="@color/colorfocus"
                 app:lineColor_unclick="@color/colorDefault"
-                app:linePosition="1"
 
-                app:cursor="@drawable/cursor"
-                />
+                app:linePosition="1" />
         </LinearLayout>
+
         <TextView
             android:id="@+id/warningpassword"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            tools:text="Password is Required"
-            android:textColor="@color/colorRed"
             android:fontFamily="sans-serif-black"
             android:gravity="right"
-            />
+            android:textColor="@color/colorRed"
+            tools:text="Password is Required" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/rounded_outer"
             android:gravity="center"
-            android:orientation="vertical"
-            android:background="@drawable/rounded_outer">
+            android:orientation="vertical">
 
             <com.example.assignment.EditText.SuperEditText
                 android:id="@+id/edit_signupconfirmpassword"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:inputType="textPassword"
-
-                android:hint="Confirm Password"
-
-                android:textAlignment="center"
-                android:textSize="20sp"
-
-                android:paddingTop="5dp"
-                android:paddingLeft="5dp"
-                android:paddingBottom="5dp"
-                android:paddingRight="5dp"
-
                 android:layout_marginLeft="1dp"
+
                 android:layout_marginRight="1dp"
 
                 android:background="@drawable/rounded_text"
+                android:hint="Confirm Password"
+
+                android:inputType="textPassword"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:paddingRight="5dp"
+
+                android:paddingBottom="5dp"
+                android:textAlignment="center"
+
+                android:textSize="20sp"
+
+                app:cursor="@drawable/cursor"
+                app:delete_height="80"
+                app:delete_width="80"
+                app:delete_x="0"
+                app:delete_y="0"
+                app:ic_delete="@drawable/delete"
 
                 app:ic_left_click="@drawable/password2_click"
                 app:ic_left_unclick="@drawable/password2_unclick"
-                app:left_x="0"
-                app:left_y="0"
-                app:left_width="60"
                 app:left_height="60"
+                app:left_width="60"
+                app:left_x="0"
 
-                app:ic_delete="@drawable/delete"
-                app:delete_x="0"
-                app:delete_y="0"
-                app:delete_width="80"
-                app:delete_height="80"
-
+                app:left_y="0"
                 app:lineColor_click="@color/colorfocus"
                 app:lineColor_unclick="@color/colorDefault"
-                app:linePosition="1"
 
-                app:cursor="@drawable/cursor"
-                />
+                app:linePosition="1" />
         </LinearLayout>
+
         <TextView
             android:id="@+id/warningconfirmpassword"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            tools:text="Confirm password is Required"
-            android:textColor="@color/colorRed"
             android:fontFamily="sans-serif-black"
             android:gravity="right"
-            />
+            android:textColor="@color/colorRed"
+            tools:text="Confirm password is Required" />
 
-            <LinearLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/btn_register"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="10dp"
-                    android:text="Register"
-                    android:textAllCaps="true"
-                    android:textColor="#FFFFFF"
-                    android:fontFamily="sans-serif-black"
-                    android:background="#990000"
-                    />
+            <Button
+                android:id="@+id/btn_register"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@color/colorDarkRed"
+                android:fontFamily="sans-serif-black"
+                android:text="Register"
+                android:textAllCaps="true"
+                android:textColor="#FFFFFF" />
 
-                <Button
-                    android:id="@+id/btn_cancel"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="10dp"
-                    android:background="#ff8080"
-                    android:fontFamily="sans-serif-black"
-                    android:text="Cancel"
-                    android:textAllCaps="true"
-                    android:textColor="#FFFFFF" />
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:background="#ff8080"
+                android:fontFamily="sans-serif-black"
+                android:text="Cancel"
+                android:textAllCaps="true"
+                android:textColor="#FFFFFF" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
