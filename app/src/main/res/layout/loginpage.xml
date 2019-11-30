@@ -15,7 +15,7 @@
         android:layout_marginBottom="5dp"
         android:gravity="center"
         android:textStyle="bold"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:text="⦯THUNDER⦬"
         android:textColor="#FFFFFF"/>
 
@@ -117,38 +117,22 @@
 
     <Button
         android:id="@+id/btn_login"
+        style="@style/defaultfont"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:text="Login"
-        android:textAllCaps="true"
-        android:textColor="#FFFFFF"
-        android:fontFamily="sans-serif-black"
         android:background="@color/colorDarkRed"
         />
 
-    <TextView
-        android:id="@+id/tv_forgotpassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:text="Forgot Password?"
-        android:fontFamily="sans-serif-black"
-        android:textAllCaps="true"
-        android:textSize="13sp"
-        android:textColor="#FFFFFF"
-        android:clickable="true"/>
 
     <TextView
         android:id="@+id/tv_register"
+        style="@style/defaultfont"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:fontFamily="sans-serif-black"
-        android:textAllCaps="true"
-        android:textColor="#FFFFFF"
         android:text="Register"
         android:textSize="13sp"
         android:clickable="true"/>

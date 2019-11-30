@@ -1,8 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        tools:context=".HomePage">
+
+        <TextView
+            style="@style/defaultfont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="30dp"
+            android:text="Select Your System Type"
+            android:textSize="20sp" />
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:background="@drawable/desktop" />
+
+        <TextView
+            style="@style/defaultfont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:text="DESKTOPS"/>
+        <Button
+            android:id="@+id/btn_desktop"
+            style="@style/defaultfont"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="20dp"
+            android:text="Select"
+            android:background="@color/colorDarkRed"
+            />
+        <ImageView
+            android:layout_width="225dp"
+            android:layout_height="136dp"
+            android:layout_gravity="center"
+            android:background="@drawable/laptop" />
+
+        <TextView
+            style="@style/defaultfont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:text="NOTEBOOKS"/>
+        <Button
+            android:id="@+id/btn_notebook"
+            style="@style/defaultfont"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="20dp"
+            android:text="Select"
+            android:background="@color/colorDarkRed"
+            />
 
 
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

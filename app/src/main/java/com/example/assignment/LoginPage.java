@@ -16,7 +16,7 @@ import java.security.MessageDigest;
 public class LoginPage extends AppCompatActivity {
     private EditText EditUsername, EditPassword;
     private Button btnLogin;
-    private TextView Forgotpassword,Register ;
+    private TextView Register ;
     private String username = "", password=setSHA256("12345678");
 
     @Override
@@ -31,8 +31,7 @@ public class LoginPage extends AppCompatActivity {
         EditUsername = findViewById(R.id.edit_username);
         EditPassword = findViewById(R.id.edit_password);
         btnLogin = findViewById(R.id.btn_login);
-        Forgotpassword = findViewById(R.id.tv_forgotpassword);
-              Register = findViewById(R.id.tv_register);
+        Register = findViewById(R.id.tv_register);
 
     }
     private void setListener(){
@@ -54,16 +53,6 @@ public class LoginPage extends AppCompatActivity {
 
         });
 
-        Forgotpassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(LoginPage.this, ForgotPasswordPage.class);
-                startActivity(i);
-                finish();
-            }
-
-
-        });
         Register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
