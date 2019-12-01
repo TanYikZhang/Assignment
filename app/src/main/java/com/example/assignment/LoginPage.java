@@ -11,20 +11,33 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.assignment.Database.DBHelper;
+import com.example.assignment.Model.Customer;
+
 import java.security.MessageDigest;
+import java.util.ArrayList;
 
 public class LoginPage extends AppCompatActivity {
+    private DBHelper DBHelper;
     private EditText EditUsername, EditPassword;
     private Button btnLogin;
     private TextView Register ;
     private String username = "", password=setSHA256("12345678");
+    private ArrayList<Customer>  customerlist =new ArrayList<Customer>();
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.loginpage);
         findViews();
+        setUpDatabase();
         setListener();
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        customerlist = DBHelper.getAllCustomer();
     }
 
     private void findViews(){
@@ -41,14 +54,20 @@ public class LoginPage extends AppCompatActivity {
                 String inputUsername = EditUsername.getText().toString();
                 String inputPassword = setSHA256(EditPassword.getText().toString());
 
-                if (inputUsername.equals(username) && inputPassword.equals(password)) {
-                    Toast.makeText(LoginPage.this, "Login Successfully", Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(LoginPage.this, HomePage.class);
-                    startActivity(i);
-                    finish();
-                } else {
-                    Toast.makeText(LoginPage.this, "Login Fail", Toast.LENGTH_LONG).show();
+                for (int i=0; i<customerlist.size(); i++){
+                    if (inputUsername.equals(customerlist.get(i).getEmail()) && inputPassword.equals(customerlist.get(i).getPassword())) {
+                        Toast.makeText(LoginPage.this, "Login Successfully", Toast.LENGTH_SHORT).show();
+                        Intent x = new Intent(LoginPage.this, HomePage.class);
+                        x.putExtra("uid",customerlist.get(i).getId());
+                        startActivity(x);
+                        finish();
+                    } else {
+                        Toast.makeText(LoginPage.this, "Login Fail", Toast.LENGTH_LONG).show();
+                    }
                 }
+
+
+
             }
 
         });
@@ -58,13 +77,15 @@ public class LoginPage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(LoginPage.this, RegisterPage.class);
                 startActivity(i);
-                finish();
             }
 
 
         });
     }
-
+    private void setUpDatabase(){
+        DBHelper = new DBHelper(this);
+        customerlist = DBHelper.getAllCustomer();
+    }
     private String setSHA256(String x){
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");

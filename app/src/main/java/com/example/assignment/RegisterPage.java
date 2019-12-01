@@ -9,8 +9,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.lang.String;
+import java.security.MessageDigest;
+import java.util.ArrayList;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.assignment.Database.DBHelper;
+import com.example.assignment.Model.Customer;
 
 
 public class RegisterPage extends AppCompatActivity {
@@ -19,12 +24,15 @@ public class RegisterPage extends AppCompatActivity {
     private Button btnRegister,btnCancel;
     private boolean TOF=true;
     private String fullname,email,number,password,confirmpassword;
+    private DBHelper DBHelper;
+    private ArrayList<Customer> customerlist= new ArrayList<Customer>();
 
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registerpage);
         findViews();
+        setUpDatabase();
         setListeners();
 
     }
@@ -53,13 +61,19 @@ public class RegisterPage extends AppCompatActivity {
                 Validate();
                 if (TOF){
                     Toast.makeText(RegisterPage.this, "Register Successfully", Toast.LENGTH_LONG).show();
-                    //add to database//
 
+                    String password=setSHA256(RegPassword.getText().toString());
+                    //add to database//
+                    DBHelper dbHelper = new DBHelper(RegisterPage.this);
+                    Customer customer = new Customer();
+                    customer.setEmail(RegEmail.getText().toString());
+                    customer.setFullname(RegFullName.getText().toString());
+                    customer.setPhoneNumber(RegPhoneNumber.getText().toString());
+                    customer.setPassword(password);
+                    dbHelper.insertCustomer(customer);
+                    RegisterPage.this.finish();
 
                     //add to database//
-                    Intent i = new Intent(RegisterPage.this, LoginPage.class);
-                    startActivity(i);
-                    finish();
                 }else{
                     Toast.makeText(RegisterPage.this, "Register Fail", Toast.LENGTH_LONG).show();
                 }
@@ -85,6 +99,10 @@ public class RegisterPage extends AppCompatActivity {
         CheckPhoneNumber();
         CheckPassword();
         CheckConfirmPassword();
+    }
+    private void setUpDatabase(){
+        DBHelper = new DBHelper(this);
+        customerlist = DBHelper.getAllCustomer();
     }
 
     private void CheckFullname(){
@@ -124,7 +142,12 @@ public class RegisterPage extends AppCompatActivity {
             TOF=false;
         }else if (email!=""){
             /////////Database//////////
-
+            for (int i=0; i<customerlist.size(); i++){
+                if (email.equals(customerlist.get(i).getEmail())) {
+                    WarningEmail.setText("Email already exist");
+                    TOF=false;
+                }
+            }
             /////////Database//////////
         }
         else {
@@ -186,5 +209,20 @@ public class RegisterPage extends AppCompatActivity {
         }
     }
 
+    private String setSHA256(String x){
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            md.update(x.getBytes());
 
+            byte[] digest = md.digest();
+            StringBuffer sb = new StringBuffer();
+            for (byte b : digest) {
+                sb.append(String.format("%02x", b & 0xff));
+            }
+            return sb.toString();
+        }catch(Exception ex){
+            throw new RuntimeException(ex);
+        }
+
+    }
 }
