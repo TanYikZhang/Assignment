@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:background="#000000"
-    android:gravity="center"
-    android:orientation="vertical"
     tools:context=".RegisterPage">
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    >
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:orientation="vertical">
 
 
@@ -36,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:gravity="center"
+        android:layout_gravity="center"
         android:text="NEW CUSTOMER"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
@@ -57,7 +63,7 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <com.example.assignment.EditText.SuperEditText
+            <com.example.assignment.Import.SuperEditText
                 android:id="@+id/edit_signupemail"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
@@ -117,7 +123,7 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <com.example.assignment.EditText.SuperEditText
+            <com.example.assignment.Import.SuperEditText
                 android:id="@+id/edit_signupfullname"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
@@ -177,7 +183,7 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <com.example.assignment.EditText.SuperEditText
+            <com.example.assignment.Import.SuperEditText
                 android:id="@+id/edit_signupphone"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
@@ -238,7 +244,7 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <com.example.assignment.EditText.SuperEditText
+            <com.example.assignment.Import.SuperEditText
                 android:id="@+id/edit_signuppassword"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
@@ -299,7 +305,7 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <com.example.assignment.EditText.SuperEditText
+            <com.example.assignment.Import.SuperEditText
                 android:id="@+id/edit_signupconfirmpassword"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
@@ -383,3 +389,4 @@
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
+</ScrollView>

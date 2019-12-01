@@ -1,20 +1,22 @@
-package com.example.assignment.Method;
+package com.example.assignment.Model;
 
 public class Customer {
     private String Email;
     private String Fullname;
     private String PhoneNumber;
     private String Password;
+    private int AccessControl;
 
     public Customer(){
 
     }
 
-    public Customer(String Email,String Fullname,String PhoneNumber,String Password){
+    public Customer(String Email,String Fullname,String PhoneNumber,String Password,int AccessControl){
         this.Email=Email;
         this.Fullname=Fullname;
         this.PhoneNumber=PhoneNumber;
         this.Email=Email;
+        this.AccessControl=AccessControl;
     }
 
     public void setEmail(String email) {
@@ -33,6 +35,9 @@ public class Customer {
         Password = password;
     }
 
+    public void setAccessControl(int AccessControl){
+    }
+
     public String getEmail() {
         return Email;
     }
@@ -47,5 +52,9 @@ public class Customer {
 
     public String getPassword() {
         return Password;
+    }
+
+    public int getAccessControl() {
+        return AccessControl;
     }
 }
