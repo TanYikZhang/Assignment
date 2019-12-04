@@ -2,17 +2,16 @@ package com.example.assignment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.assignment.Database.DBHelper;
 import com.example.assignment.Model.Customer;
 import com.example.assignment.Model.Global;
+import com.example.assignment.PCBuild.DesktopBuild;
 
 import java.util.ArrayList;
 
@@ -45,7 +44,7 @@ public class HomePage extends AppCompatActivity {
         Build.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(HomePage.this, ChoosePage.class);
+                Intent i = new Intent(HomePage.this, DesktopBuild.class);
                 startActivity(i);
 
             }

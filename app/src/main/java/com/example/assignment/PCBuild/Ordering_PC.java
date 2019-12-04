@@ -9,19 +9,18 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.assignment.HomePage;
-import com.example.assignment.LoginPage;
 import com.example.assignment.OrderHistory;
 import com.example.assignment.R;
 
-public class Ordering_Notebook extends AppCompatActivity {
+public class Ordering_PC extends AppCompatActivity {
 
-    private TextView CPU,GTX,DISPLAY,RAM,KEYBOARD,SSD1,SSD2,HDD,OS,WARRANTY,TOTAL;
+    private TextView PSU,CHASSIS,MOTHERBOARD,CPU,GTX,RAM,SSD1,SSD2,HDD,COOLINGSYSTEM,CASELIGHT,WIRELESSLAN,OS,WARRANTY,TOTAL;
 
     private Button Ordering;
 
-    private String cputype="",gtxtype="",displaytype="",ramtype="",keyboardtype="",
-            firstssdtype="",secondssdtype="",harddisktype="",ostype="",warrantytype="";
+    private String
+            psutype="",chassistype="",motherboardtype="",cputype = "", gtxtype = "",  ramtype = "",
+            firstssdtype = "", secondssdtype = "", harddisktype = "", coolingsystemtype="",caselighttype="",wirelesslantype="",ostype = "", warrantytype = "";
 
     private String text;
 
@@ -30,7 +29,7 @@ public class Ordering_Notebook extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ordering_notebook);
+        setContentView(R.layout.activity_ordering_pc);
         getData();
         getViews();
         setData();
@@ -45,8 +44,8 @@ public class Ordering_Notebook extends AppCompatActivity {
             public void onClick(View v) {
                 //set to database, remember add date into database
 
-                Intent i = new Intent(Ordering_Notebook.this, OrderHistory.class);
-                Toast.makeText(Ordering_Notebook.this, "Order Successfully", Toast.LENGTH_LONG).show();
+                Intent i = new Intent(Ordering_PC.this, OrderHistory.class);
+                Toast.makeText(Ordering_PC.this, "Order Successfully", Toast.LENGTH_LONG).show();
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
 
@@ -56,14 +55,18 @@ public class Ordering_Notebook extends AppCompatActivity {
     }
 
     private void getViews(){
+        PSU=findViewById(R.id.setpsu);
+        CHASSIS=findViewById(R.id.setchassis);
+        MOTHERBOARD=findViewById(R.id.setmotherboard);
         CPU=findViewById(R.id.setcpu);
         GTX=findViewById(R.id.setgtx);
-        DISPLAY=findViewById(R.id.setdisplay);
         RAM=findViewById(R.id.setram);
-        KEYBOARD=findViewById(R.id.setkeyboard);
         SSD1=findViewById(R.id.setssd1);
         SSD2=findViewById(R.id.setssd2);
         HDD=findViewById(R.id.sethdd);
+        COOLINGSYSTEM=findViewById(R.id.setcoolingsystem);
+        CASELIGHT=findViewById(R.id.setcaselight);
+        WIRELESSLAN=findViewById(R.id.setwirelesslan);
         OS=findViewById(R.id.setos);
         WARRANTY=findViewById(R.id.setwarranty);
         TOTAL=findViewById(R.id.settotal);
@@ -73,14 +76,18 @@ public class Ordering_Notebook extends AppCompatActivity {
 
     private void getData(){
         totalprice = getIntent().getIntExtra("totalprice",0);
+        psutype = getIntent().getStringExtra("psu");
+        chassistype = getIntent().getStringExtra("chassis");
+        motherboardtype = getIntent().getStringExtra("motherboard");
         cputype = getIntent().getStringExtra("cpu");
         gtxtype= getIntent().getStringExtra("graphicscard");
-        displaytype=getIntent().getStringExtra("display");
         ramtype=getIntent().getStringExtra("ram");
-        keyboardtype=getIntent().getStringExtra("keyboard");
         firstssdtype=getIntent().getStringExtra("ssd1");
         secondssdtype=getIntent().getStringExtra("ssd2");
         harddisktype=getIntent().getStringExtra("harddisk");
+        coolingsystemtype= getIntent().getStringExtra("coolingsystem");
+        caselighttype= getIntent().getStringExtra("caselight");
+        wirelesslantype= getIntent().getStringExtra("wirelesslan");
         ostype=getIntent().getStringExtra("os");
         warrantytype=getIntent().getStringExtra("warranty");
 
@@ -88,14 +95,18 @@ public class Ordering_Notebook extends AppCompatActivity {
     }
 
     private void setData(){
+        PSU.setText(psutype);
+        CHASSIS.setText(chassistype);
+        MOTHERBOARD.setText(motherboardtype);
         CPU.setText(cputype);
         GTX.setText(gtxtype);
-        DISPLAY.setText(displaytype);
         RAM.setText(ramtype);
-        KEYBOARD.setText(keyboardtype);
         SSD1.setText(firstssdtype);
         SSD2.setText(secondssdtype);
         HDD.setText(harddisktype);
+        COOLINGSYSTEM.setText(coolingsystemtype);
+        CASELIGHT.setText(caselighttype);
+        WIRELESSLAN.setText(wirelesslantype);
         OS.setText(ostype);
         WARRANTY.setText(warrantytype);
         TOTAL.setText("RM "+totalprice);
