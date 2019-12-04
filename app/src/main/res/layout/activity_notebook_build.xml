@@ -272,7 +272,8 @@
                             style="@style/defaultfont"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="8GB (8GB x 2) DDR4 RAM (+RM139.00)" />
+                            android:layout_marginBottom="10dp"
+                            android:text="16GB (8GB x 2) DDR4 RAM (+RM139.00)" />
 
                         <RadioButton
                             android:id="@+id/ram_16gb"
@@ -384,14 +385,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
-                            android:text="256GB M.2 NVME ULTRA FAST SSD (Read Speed: 3000mb/s | Write speed : 1000mb/s)" />
+                            android:text="256GB M.2 NVME ULTRA FAST SSD " />
 
                         <RadioButton
                             android:id="@+id/ssd512gb"
                             style="@style/defaultfont"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="512GB M.2 NVME ULTRA FAST SSD (Read Speed: 3200mb/s | Write speed : 2000mb/s) (+RM149.00)" />
+                            android:layout_marginBottom="10dp"
+                            android:text="512GB M.2 NVME ULTRA FAST SSD (+RM149.00)" />
 
                         <RadioButton
                             android:id="@+id/ssd1tb"
@@ -399,7 +401,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
-                            android:text="1TB M.2 NVME ULTRA FAST SSD (Read Speed: 3400mb/s | Write speed : 3000mb/s) (+RM599.00)" />
+                            android:text="1TB M.2 NVME ULTRA FAST SSD (+RM599.00)" />
 
 
                     </RadioGroup>
@@ -445,6 +447,7 @@
                             style="@style/defaultfont"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
                             android:text="NONE" />
 
                         <RadioButton
@@ -453,14 +456,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
-                            android:text="256GB M.2 NVME ULTRA FAST SSD (Read Speed: 3000mb/s | Write speed : 1000mb/s) (+RM329.00)" />
+                            android:text="256GB M.2 NVME ULTRA FAST SSD (+RM329.00)" />
 
                         <RadioButton
                             android:id="@+id/ssd512gb2"
                             style="@style/defaultfont"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="512GB M.2 NVME ULTRA FAST SSD (Read Speed: 3200mb/s | Write speed : 2000mb/s) (+RM479.00)" />
+                            android:layout_marginBottom="10dp"
+                            android:text="512GB M.2 NVME ULTRA FAST SSD (+RM479.00)" />
 
                         <RadioButton
                             android:id="@+id/ssd1tb2"
@@ -468,7 +472,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
-                            android:text="1TB M.2 NVME ULTRA FAST SSD (Read Speed: 3400mb/s | Write speed : 3000mb/s) (+RM899.00)" />
+                            android:text="1TB M.2 NVME ULTRA FAST SSD (+RM899.00)" />
 
 
                     </RadioGroup>
@@ -522,6 +526,7 @@
                             style="@style/defaultfont"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
                             android:text="1TB Toshiba HDD (+RM229.00)" />
 
                         <RadioButton
@@ -529,6 +534,7 @@
                             style="@style/defaultfont"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
                             android:text="2TB Toshiba HDD (+RM349.00)" />
                     </RadioGroup>
                 </LinearLayout>
@@ -581,6 +587,7 @@
                             style="@style/defaultfont"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
                             android:text="Windows 10 Home (+RM479.00)" />
 
                         <RadioButton
@@ -588,6 +595,7 @@
                             style="@style/defaultfont"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
                             android:text="Windows 10 Professional (+RM609.00)" />
                     </RadioGroup>
                 </LinearLayout>
@@ -640,6 +648,7 @@
                             style="@style/defaultfont"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
                             android:text="3 Years Warranty (+RM299.00)" />
                     </RadioGroup>
                 </LinearLayout>

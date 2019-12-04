@@ -2,13 +2,49 @@ package com.example.assignment.Model;
 
 public class Notebook {
 
-    private String  TypeCPU,TypeGraphicscard,TypeDisplay,
-                    TypeRAM,TypeKeyboard,TypeFirstM2SSDBaY,TypeSecondM2SSDBay,
-                    TypeHardDrive,TypeOS,TypeWarrantyPackage;
+
+
+    private String Type;
+    private String TypeCPU;
+    private String TypeGraphicscard;
+    private String TypeDisplay;
+    private String TypeRAM;
+    private String TypeKeyboard;
+    private String TypeFirstM2SSDBaY;
+    private String TypeSecondM2SSDBay;
+    private String TypeHardDrive;
+    private String TypeOS;
+    private String TypeWarrantyPackage;
+    private String DateBuild;
+    private String Process;
     private int TotalPrice;
 
     public Notebook(){
 
+    }
+
+
+
+    public String getProcess() {
+        return Process;
+    }
+
+    public void setProcess(String process) {
+        Process = process;
+    }
+    public String getType() {
+        return Type;
+    }
+
+    public void setType() {
+        Type = "Notebook";
+    }
+    public String getDateBuild() {
+        return DateBuild;
+    }
+
+    public void setDateBuild(String dateBuild) {
+        DateBuild = dateBuild;
     }
 
     public void setTypeCPU(String typeCPU) {

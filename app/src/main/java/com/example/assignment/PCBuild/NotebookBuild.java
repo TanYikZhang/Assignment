@@ -12,7 +12,6 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.example.assignment.Model.Notebook;
-import com.example.assignment.Ordering;
 import com.example.assignment.R;
 
 public class NotebookBuild extends AppCompatActivity {
@@ -44,11 +43,12 @@ public class NotebookBuild extends AppCompatActivity {
 
     private Button Order;
 
-    private int defaultprice=2000;
+    private int defaultprice=2500;
     private int totalprice=0;
     private TextView TVPrice;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notebook_build);
         findViews();
@@ -154,7 +154,7 @@ public class NotebookBuild extends AppCompatActivity {
         ramtype=radioButtonram8gbx1.getText().toString();
         keyboardtype=radioButtonkeyboardred.getText().toString();
         firstssdtype=radioButtonSSD256GB1.getText().toString();
-        secondssdtype=radioButtonSSD256GB2.getText().toString();
+        secondssdtype=radioButtonSSDnone2.getText().toString();
         harddisktype=radioButtonHardDisknone.getText().toString();
         ostype=radioButtonOSunactive.getText().toString();
         warrantytype=radioButton2yearswarranty.getText().toString();
@@ -315,7 +315,7 @@ public class NotebookBuild extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (radioButtonSSDnone2.isChecked()){
 
-                    secondssdtype=radioButtonSSD256GB2.getText().toString();
+                    secondssdtype=radioButtonSSDnone2.getText().toString();
                     secondssdprice=0;
                     TotalPrice();
 
@@ -416,7 +416,7 @@ public class NotebookBuild extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 setResult();
-                Intent i = new Intent(NotebookBuild.this, Ordering.class);
+                Intent i = new Intent(NotebookBuild.this, Ordering_Notebook.class);
                 i.putExtra("totalprice",notebook.getTotalPrice());
                 i.putExtra("cpu",notebook.getTypeCPU());
                 i.putExtra("graphicscard",notebook.getTypeGraphicscard());

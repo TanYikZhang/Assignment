@@ -2,7 +2,6 @@ package com.example.assignment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.assignment.Database.DBHelper;
 import com.example.assignment.Model.Customer;
+import com.example.assignment.Model.Global;
 
 import java.security.MessageDigest;
 import java.util.ArrayList;
@@ -54,14 +54,18 @@ public class LoginPage extends AppCompatActivity {
                 String inputUsername = EditUsername.getText().toString();
                 String inputPassword = setSHA256(EditPassword.getText().toString());
 
+                int login=0;
                 for (int i=0; i<customerlist.size(); i++){
                     if (inputUsername.equals(customerlist.get(i).getEmail()) && inputPassword.equals(customerlist.get(i).getPassword())) {
-                        Toast.makeText(LoginPage.this, "Login Successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginPage.this, "Login Successfully", Toast.LENGTH_LONG).show();
+                        System.out.println("//////////////////////////////////////////////");
                         Intent x = new Intent(LoginPage.this, HomePage.class);
-                        x.putExtra("uid",customerlist.get(i).getId());
+                        Global global = (Global) getApplicationContext();
+                        global.setId(customerlist.get(i).getId());
                         startActivity(x);
                         finish();
-                    } else {
+                        login=1;
+                    } else if (login!=1){
                         Toast.makeText(LoginPage.this, "Login Fail", Toast.LENGTH_LONG).show();
                     }
                 }
@@ -77,6 +81,7 @@ public class LoginPage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(LoginPage.this, RegisterPage.class);
                 startActivity(i);
+                finish();
             }
 
 
