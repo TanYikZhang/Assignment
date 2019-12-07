@@ -22,7 +22,6 @@ public class LoginPage extends AppCompatActivity {
     private EditText EditUsername, EditPassword;
     private Button btnLogin;
     private TextView Register ;
-    private String username = "", password=setSHA256("12345678");
     private ArrayList<Customer>  customerlist =new ArrayList<Customer>();
 
 
@@ -37,7 +36,7 @@ public class LoginPage extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        customerlist = DBHelper.getAllCustomer();
+        customerlist = DBHelper.getAllPerson();
     }
 
     private void findViews(){
@@ -56,6 +55,7 @@ public class LoginPage extends AppCompatActivity {
 
                 int login=0;
                 for (int i=0; i<customerlist.size(); i++){
+                    System.out.println(customerlist.get(i).getEmail());
                     if (inputUsername.equals(customerlist.get(i).getEmail()) && inputPassword.equals(customerlist.get(i).getPassword())) {
                         Toast.makeText(LoginPage.this, "Login Successfully", Toast.LENGTH_LONG).show();
                         System.out.println("//////////////////////////////////////////////");
@@ -76,6 +76,7 @@ public class LoginPage extends AppCompatActivity {
 
         });
 
+
         Register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,7 +90,7 @@ public class LoginPage extends AppCompatActivity {
     }
     private void setUpDatabase(){
         DBHelper = new DBHelper(this);
-        customerlist = DBHelper.getAllCustomer();
+        customerlist = DBHelper.getAllPerson();
     }
     private String setSHA256(String x){
         try {

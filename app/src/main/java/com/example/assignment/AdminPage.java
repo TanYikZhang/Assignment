@@ -1,6 +1,7 @@
 package com.example.assignment;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,8 +16,8 @@ import com.example.assignment.PCBuild.DesktopBuild;
 
 import java.util.ArrayList;
 
-public class HomePage extends AppCompatActivity {
-    Button Build,Logout,Admin,History;
+public class AdminPage extends AppCompatActivity {
+    Button CusList,Logout,MainPage,CusOrder;
     private ArrayList<Customer> customerlist =new ArrayList<Customer>();
     private DBHelper DBHelper;
     String fullname;
@@ -25,7 +26,7 @@ public class HomePage extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_page);
+        setContentView(R.layout.activity_admin_page);
         findViews();
         setListeners();
         setUpDatabase();
@@ -33,27 +34,28 @@ public class HomePage extends AppCompatActivity {
     }
 
     private void findViews(){
-        Build = findViewById(R.id.btn_build);
+        CusList = findViewById(R.id.btn_cuslist);
         Logout = findViewById(R.id.btn_logout);
-        Admin = findViewById(R.id.btn_admin);
-        History = findViewById(R.id.btn_history);
+        MainPage = findViewById(R.id.btn_mainpage);
+        CusOrder = findViewById(R.id.btn_cusorder);
         tvfullname = findViewById(R.id.fullname);
     }
 
     private void setListeners(){
-        Admin.setOnClickListener(new View.OnClickListener() {
+        MainPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(HomePage.this, AdminPage.class);
+                Intent i = new Intent(AdminPage.this, HomePage.class);
                 startActivity(i);
                 finish();
+
             }
         });
 
-        Build.setOnClickListener(new View.OnClickListener() {
+        CusList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(HomePage.this, DesktopBuild.class);
+                Intent i = new Intent(AdminPage.this, CustomerList.class);
                 startActivity(i);
 
             }
@@ -62,7 +64,7 @@ public class HomePage extends AppCompatActivity {
         Logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(HomePage.this, LoginPage.class);
+                Intent i = new Intent(AdminPage.this, LoginPage.class);
                 startActivity(i);
                 finish();
             }
@@ -74,16 +76,14 @@ public class HomePage extends AppCompatActivity {
         for (int i=0; i<customerlist.size(); i++){
                 if(id==customerlist.get(i).getId()){
                     tvfullname.setText(customerlist.get(i).getFullname());
-                    if(customerlist.get(i).getAccessControl()!=1){
-                        Admin.setVisibility(View.GONE);
                     }
                 }
-            }
+
         }
 
 
     private void setUpDatabase(){
         DBHelper = new DBHelper(this);
-        customerlist = DBHelper.getAllCustomer();
+        customerlist = DBHelper.getAllPerson();
     }
 }

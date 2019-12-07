@@ -44,11 +44,12 @@ public class Ordering_PC extends AppCompatActivity {
             public void onClick(View v) {
                 //set to database, remember add date into database
 
+                insertData();
                 Intent i = new Intent(Ordering_PC.this, OrderHistory.class);
                 Toast.makeText(Ordering_PC.this, "Order Successfully", Toast.LENGTH_LONG).show();
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
-
+                finish();
                 //set to database
             }
         });
@@ -110,5 +111,9 @@ public class Ordering_PC extends AppCompatActivity {
         OS.setText(ostype);
         WARRANTY.setText(warrantytype);
         TOTAL.setText("RM "+totalprice);
+    }
+
+    private void insertData(){
+
     }
 }

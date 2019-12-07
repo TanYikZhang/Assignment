@@ -86,6 +86,28 @@ public class DBHelper extends SQLiteOpenHelper {
     public ArrayList<Customer> getAllCustomer(){
         ArrayList<Customer> contactArrayList = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
+        Cursor res = db.rawQuery("SELECT * FROM " + Customer.TABLE_NAME +" WHERE "+Customer.COLOMN_ACCESSCONTROL +" = 2", null);
+        res.moveToFirst();
+
+        while (!res.isAfterLast()){
+            Customer contact = new Customer();
+            contact.setId(res.getInt(res.getColumnIndex(Customer.COLOMN_ID)));
+            contact.setEmail(res.getString(res.getColumnIndex(Customer.COLOMN_EMAIL)));
+            contact.setFullname(res.getString(res.getColumnIndex(Customer.COLOMN_FULLNAME)));
+            contact.setPhoneNumber(res.getString(res.getColumnIndex(Customer.COLOMN_PHONE_NUMBER)));
+            contact.setPassword(res.getString(res.getColumnIndex(Customer.COLOMN_PASSWORD)));
+            contact.setAccessControl(res.getInt(res.getColumnIndex(Customer.COLOMN_ACCESSCONTROL)));
+
+            contactArrayList.add(contact);
+            res.moveToNext();
+        }
+        res.close();
+        return contactArrayList;
+    }
+
+    public ArrayList<Customer> getAllPerson(){
+        ArrayList<Customer> contactArrayList = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
         Cursor res = db.rawQuery("SELECT * FROM " + Customer.TABLE_NAME, null);
         res.moveToFirst();
 
