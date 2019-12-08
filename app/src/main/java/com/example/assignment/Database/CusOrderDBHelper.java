@@ -10,22 +10,13 @@ import com.example.assignment.Model.Customer;
 import com.example.assignment.Model.PC;
 
 import java.security.MessageDigest;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
-public class DBHelper extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "MyDatabase.db";
+public class CusOrderDBHelper extends SQLiteOpenHelper {
+    private static final String DATABASE_NAME = "MyDataba.db";
 
-    private static final String TABLE_CUSTOMER = "CREATE TABLE " + Customer.TABLE_NAME
-            + "(" + Customer.COLOMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + Customer.COLOMN_EMAIL + " TEXT, "
-            + Customer.COLOMN_FULLNAME + " TEXT, "
-            + Customer.COLOMN_PHONE_NUMBER + " TEXT, "
-            + Customer.COLOMN_PASSWORD + " TEXT, "
-            + Customer.COLOMN_ACCESSCONTROL + " INTEGER);";
-
-    private static final String TABLE_ORDER = "CREATE TABLE IF NOT EXISTS "
+    private static final
+            String TABLE_ORDER = "CREATE TABLE IF NOT EXISTS "
             + PC.TABLE_NAME + " (" + PC.COLOMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + PC.COLOMN_CUSID + " INTEGER, "
             + PC.COLOMN_DATE + " TEXT, "
@@ -48,9 +39,7 @@ public class DBHelper extends SQLiteOpenHelper {
             + " FOREIGN KEY " + "("+PC.COLOMN_CUSID+")" +" REFERENCES "+ Customer.TABLE_NAME+"("+Customer.COLOMN_ID+")" + ");"
             ;
 
-
-
-    public DBHelper(Context context){
+    public CusOrderDBHelper(Context context){
         super(context,DATABASE_NAME,null,1);
     }
 
@@ -58,123 +47,20 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         //Same as :
         //CREATE TABLE contacts (id INTEGER PRIMARY KEY, name TEXT, phoneNumber TEXT)
-        db.execSQL(TABLE_CUSTOMER);
         db.execSQL(TABLE_ORDER);
-      /*  db.execSQL(
-                "CREATE TABLE " + Customer.TABLE_NAME
-                        + "(" + Customer.COLOMN_ID + " INTEGER PRIMARY KEY, "
-                        + Customer.COLOMN_EMAIL + " TEXT, "
-                        + Customer.COLOMN_FULLNAME + " TEXT, "
-                        + Customer.COLOMN_PHONE_NUMBER + " TEXT, "
-                        + Customer.COLOMN_PASSWORD + " TEXT, "
-                        + Customer.COLOMN_ACCESSCONTROL + " INTEGER);"
-        );*/
-        /////////////////////////////////////////////////////////////////
-        ContentValues values = new ContentValues();
-        Customer customer =new Customer("admin","TYZ","0103893988",setSHA256("admin"));
-        customer.setAccessControl(1);
 
-        values.put(Customer.COLOMN_EMAIL,customer.getEmail());
-        values.put(Customer.COLOMN_FULLNAME,customer.getFullname());
-        values.put(Customer.COLOMN_PHONE_NUMBER,customer.getPhoneNumber());
-        values.put(Customer.COLOMN_PASSWORD,customer.getPassword());
-        values.put(Customer.COLOMN_ACCESSCONTROL,customer.getAccessControl());
-        db.insert(Customer.TABLE_NAME, null,values);
-        //////////////////////////////////////////////////////////////////
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + Customer.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + PC.TABLE_NAME);
         onCreate(db);
     }
 
-    public boolean insertCustomer(Customer customer){
-        SQLiteDatabase db= getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(Customer.COLOMN_EMAIL,customer.getEmail());
-        values.put(Customer.COLOMN_FULLNAME,customer.getFullname());
-        values.put(Customer.COLOMN_PHONE_NUMBER,customer.getPhoneNumber());
-        values.put(Customer.COLOMN_PASSWORD,customer.getPassword());
-        values.put(Customer.COLOMN_ACCESSCONTROL,customer.getAccessControl());
-        db.insert(Customer.TABLE_NAME, null,values);
-        return true;
-    }
-
-    public void updateCustomer(Customer customer){
-        SQLiteDatabase db= getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(Customer.COLOMN_EMAIL,customer.getEmail());
-        values.put(Customer.COLOMN_FULLNAME,customer.getFullname());
-        values.put(Customer.COLOMN_PHONE_NUMBER,customer.getPhoneNumber());
-        values.put(Customer.COLOMN_PASSWORD,customer.getPassword());
-        values.put(Customer.COLOMN_ACCESSCONTROL,customer.getAccessControl());
-        db.update(Customer.TABLE_NAME, values, Customer.COLOMN_ID + " = ? ",
-                new String[]{Integer.toString(customer.getId())});
-    }
-
-    public void deleteCustomer(Integer id){
-        SQLiteDatabase db= getWritableDatabase();
-
-        db.delete(Customer.TABLE_NAME, Customer.COLOMN_ID + " = ?",
-                new String[]{Integer.toString(id)});
-
-    }
-
-    public ArrayList<Customer> getAllCustomer(){
-        ArrayList<Customer> contactArrayList = new ArrayList<>();
-        SQLiteDatabase db = getReadableDatabase();
-        Cursor res = db.rawQuery("SELECT * FROM " + Customer.TABLE_NAME +" WHERE "+Customer.COLOMN_ACCESSCONTROL +" = 2", null);
-        res.moveToFirst();
-
-        while (!res.isAfterLast()){
-            Customer customer = new Customer();
-            customer.setId(res.getInt(res.getColumnIndex(Customer.COLOMN_ID)));
-            customer.setEmail(res.getString(res.getColumnIndex(Customer.COLOMN_EMAIL)));
-            customer.setFullname(res.getString(res.getColumnIndex(Customer.COLOMN_FULLNAME)));
-            customer.setPhoneNumber(res.getString(res.getColumnIndex(Customer.COLOMN_PHONE_NUMBER)));
-            customer.setPassword(res.getString(res.getColumnIndex(Customer.COLOMN_PASSWORD)));
-            customer.setAccessControl(res.getInt(res.getColumnIndex(Customer.COLOMN_ACCESSCONTROL)));
-
-            contactArrayList.add(customer);
-            res.moveToNext();
-        }
-        res.close();
-        return contactArrayList;
-    }
-
-    public ArrayList<Customer> getAllPerson(){
-        ArrayList<Customer> contactArrayList = new ArrayList<>();
-        SQLiteDatabase db = getReadableDatabase();
-        Cursor res = db.rawQuery("SELECT * FROM " + Customer.TABLE_NAME, null);
-        res.moveToFirst();
-
-        while (!res.isAfterLast()){
-            Customer customer = new Customer();
-            customer.setId(res.getInt(res.getColumnIndex(Customer.COLOMN_ID)));
-            customer.setEmail(res.getString(res.getColumnIndex(Customer.COLOMN_EMAIL)));
-            customer.setFullname(res.getString(res.getColumnIndex(Customer.COLOMN_FULLNAME)));
-            customer.setPhoneNumber(res.getString(res.getColumnIndex(Customer.COLOMN_PHONE_NUMBER)));
-            customer.setPassword(res.getString(res.getColumnIndex(Customer.COLOMN_PASSWORD)));
-            customer.setAccessControl(res.getInt(res.getColumnIndex(Customer.COLOMN_ACCESSCONTROL)));
-
-            contactArrayList.add(customer);
-            res.moveToNext();
-        }
-        res.close();
-        return contactArrayList;
-    }
-
-
     public boolean insertOrderPC(PC PC){
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String strDate = sdf.format(new Date());
-
         SQLiteDatabase db= getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(PC.COLOMN_CUSID,PC.getCusid());
-        values.put(PC.COLOMN_PROCESS,PC.getProcess());
-        values.put(PC.COLOMN_DATE,strDate);
         values.put(PC.COLOMN_CHASSIS,PC.getTypeChassis());
         values.put(PC.COLOMN_MOTHERBOARD,PC.getTypeMotherBoard());
         values.put(PC.COLOMN_CPU,PC.getTypeCPU());
@@ -264,7 +150,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public ArrayList<PC> getOrderHistory(int id){
         ArrayList<PC> OrderPCArrayList = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
-        Cursor res = db.rawQuery("SELECT * FROM " + PC.TABLE_NAME + " WHERE "+ PC.COLOMN_CUSID +" = " + id, null);
+        Cursor res = db.rawQuery("SELECT * FROM " + PC.TABLE_NAME + " WHERE id = " + id, null);
         res.moveToFirst();
 
         while (!res.isAfterLast()){
@@ -296,20 +182,4 @@ public class DBHelper extends SQLiteOpenHelper {
         return OrderPCArrayList;
     }
 
-    private String setSHA256(String x){
-        try {
-            MessageDigest md = MessageDigest.getInstance("SHA-256");
-            md.update(x.getBytes());
-
-            byte[] digest = md.digest();
-            StringBuffer sb = new StringBuffer();
-            for (byte b : digest) {
-                sb.append(String.format("%02x", b & 0xff));
-            }
-            return sb.toString();
-        }catch(Exception ex){
-            throw new RuntimeException(ex);
-        }
-
-    }
 }

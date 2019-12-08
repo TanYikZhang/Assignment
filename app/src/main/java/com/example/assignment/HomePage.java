@@ -37,7 +37,7 @@ public class HomePage extends AppCompatActivity {
         Logout = findViewById(R.id.btn_logout);
         Admin = findViewById(R.id.btn_admin);
         History = findViewById(R.id.btn_history);
-        tvfullname = findViewById(R.id.fullname);
+        tvfullname = findViewById(R.id.homefullname);
     }
 
     private void setListeners(){
@@ -46,7 +46,6 @@ public class HomePage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(HomePage.this, AdminPage.class);
                 startActivity(i);
-                finish();
             }
         });
 
@@ -54,6 +53,15 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(HomePage.this, DesktopBuild.class);
+                startActivity(i);
+
+            }
+        });
+
+        History.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HomePage.this, OrderHistory.class);
                 startActivity(i);
 
             }
@@ -74,6 +82,7 @@ public class HomePage extends AppCompatActivity {
         for (int i=0; i<customerlist.size(); i++){
                 if(id==customerlist.get(i).getId()){
                     tvfullname.setText(customerlist.get(i).getFullname());
+                    System.out.println("/////////////////////");
                     if(customerlist.get(i).getAccessControl()!=1){
                         Admin.setVisibility(View.GONE);
                     }
@@ -84,6 +93,6 @@ public class HomePage extends AppCompatActivity {
 
     private void setUpDatabase(){
         DBHelper = new DBHelper(this);
-        customerlist = DBHelper.getAllCustomer();
+        customerlist = DBHelper.getAllPerson();
     }
 }

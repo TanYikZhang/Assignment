@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#000000"
     android:orientation="vertical"
-    tools:context=".OrderHistory">
+    tools:context=".CustomerOrder">
 
     <LinearLayout
         android:id="@+id/linearlayout"
@@ -20,7 +20,7 @@
             style="@style/defaultfont"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Customer Order" />
+            android:text="Order History" />
     </LinearLayout>
 
     <LinearLayout
@@ -29,7 +29,7 @@
         android:layout_below="@+id/linearlayout">
 
         <ListView
-            android:id="@+id/lvcusorderhistory"
+            android:id="@+id/lvcusorder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp" />

@@ -55,10 +55,8 @@ public class LoginPage extends AppCompatActivity {
 
                 int login=0;
                 for (int i=0; i<customerlist.size(); i++){
-                    System.out.println(customerlist.get(i).getEmail());
                     if (inputUsername.equals(customerlist.get(i).getEmail()) && inputPassword.equals(customerlist.get(i).getPassword())) {
                         Toast.makeText(LoginPage.this, "Login Successfully", Toast.LENGTH_LONG).show();
-                        System.out.println("//////////////////////////////////////////////");
                         Intent x = new Intent(LoginPage.this, HomePage.class);
                         Global global = (Global) getApplicationContext();
                         global.setId(customerlist.get(i).getId());
@@ -82,7 +80,6 @@ public class LoginPage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(LoginPage.this, RegisterPage.class);
                 startActivity(i);
-                finish();
             }
 
 

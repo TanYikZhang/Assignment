@@ -637,7 +637,7 @@ public class DesktopBuild extends AppCompatActivity {
         PC.setTypePowerSupply(psutype);
         PC.setTypeChassis(chassistype);
         PC.setTypeMotherBoard(motherboardtype);
-        PC.setTypeCPU(CutRM(CutRM(cputype)));
+        PC.setTypeCPU(CutRM(cputype));
         PC.setTypeGraphicscard(CutRM(gtxtype));
         PC.setTypeRAM(CutRM(ramtype));
         PC.setTypeFirstSlotSSD(CutRM(firstssdtype));

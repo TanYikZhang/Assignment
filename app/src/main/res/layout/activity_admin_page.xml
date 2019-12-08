@@ -33,7 +33,7 @@
             android:text="Admin"/>
 
             <TextView
-                android:id="@+id/fullname"
+                android:id="@+id/adminfullname"
                 style="@style/defaultfont"
                 android:textSize="24sp"
                 android:layout_width="wrap_content"
@@ -41,16 +41,6 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="20sp"
                 tools:text="TYZ"/>
-
-            <Button
-                android:id="@+id/btn_mainpage"
-                android:layout_gravity="center"
-                style="@style/defaultfont"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="Main page"
-                android:background="@color/colorDarkRed" />
 
             <Button
                 android:id="@+id/btn_cuslist"

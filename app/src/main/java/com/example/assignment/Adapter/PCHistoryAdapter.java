@@ -43,10 +43,10 @@ public class PCHistoryAdapter extends ArrayAdapter<PC>{
             holder = new ViewHolder();
             convertView = LayoutInflater.from(context).inflate(R.layout.pc_item,parent,false);
 
-            holder.tvid = convertView.findViewById(R.id.setid);
-            holder.tvdate = convertView.findViewById(R.id.setdate);
-            holder.tvprice = convertView.findViewById(R.id.setprice);
-            holder.tvprocess = convertView.findViewById(R.id.setprocess);
+            holder.tvid = convertView.findViewById(R.id.setpcid);
+            holder.tvdate = convertView.findViewById(R.id.setpcdate);
+            holder.tvprice = convertView.findViewById(R.id.setpcprice);
+            holder.tvprocess = convertView.findViewById(R.id.setpcprocess);
 
 
             convertView.setTag(holder);
@@ -54,9 +54,9 @@ public class PCHistoryAdapter extends ArrayAdapter<PC>{
             holder= (ViewHolder) convertView.getTag();
 
         }
-        holder.tvid.setText(PC.getId());
+        holder.tvid.setText(Integer.toString(PC.getId()));
         holder.tvdate.setText(PC.getDateBuild());
-        holder.tvprice.setText(PC.getTotalPrice());
+        holder.tvprice.setText("RM "+Integer.toString(PC.getTotalPrice()));
         holder.tvprocess.setText(PC.getProcess());
 
         return convertView;

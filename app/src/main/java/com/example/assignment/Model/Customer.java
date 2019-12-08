@@ -2,7 +2,7 @@ package com.example.assignment.Model;
 
 public class Customer {
     public static final String TABLE_NAME = "customer";
-    public static final String COLOMN_ID = "id";
+    public static final String COLOMN_ID = "cusid";
     public static final String COLOMN_EMAIL = "email";
     public static final String COLOMN_FULLNAME = "fullname";
     public static final String COLOMN_PHONE_NUMBER = "phonenumber";

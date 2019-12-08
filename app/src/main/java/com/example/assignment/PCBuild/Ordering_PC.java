@@ -9,6 +9,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.assignment.Database.DBHelper;
+import com.example.assignment.HomePage;
+import com.example.assignment.Model.Global;
+import com.example.assignment.Model.PC;
 import com.example.assignment.OrderHistory;
 import com.example.assignment.R;
 
@@ -18,11 +22,14 @@ public class Ordering_PC extends AppCompatActivity {
 
     private Button Ordering;
 
+
+    private DBHelper OrderDBHelper ;
+    private PC PC ;
     private String
             psutype="",chassistype="",motherboardtype="",cputype = "", gtxtype = "",  ramtype = "",
             firstssdtype = "", secondssdtype = "", harddisktype = "", coolingsystemtype="",caselighttype="",wirelesslantype="",ostype = "", warrantytype = "";
 
-    private String text;
+    private String text,process="Building";
 
     private int totalprice=0;
 
@@ -43,9 +50,10 @@ public class Ordering_PC extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //set to database, remember add date into database
-
+                OrderDBHelper = new DBHelper(Ordering_PC.this);
                 insertData();
-                Intent i = new Intent(Ordering_PC.this, OrderHistory.class);
+                OrderDBHelper.insertOrderPC(PC);
+                Intent i = new Intent(Ordering_PC.this, HomePage.class);
                 Toast.makeText(Ordering_PC.this, "Order Successfully", Toast.LENGTH_LONG).show();
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
@@ -94,7 +102,6 @@ public class Ordering_PC extends AppCompatActivity {
 
 
     }
-
     private void setData(){
         PSU.setText(psutype);
         CHASSIS.setText(chassistype);
@@ -115,5 +122,29 @@ public class Ordering_PC extends AppCompatActivity {
 
     private void insertData(){
 
+        PC = new PC();
+        Global global = (Global) getApplicationContext();
+
+        int CusID = global.getId();
+
+        PC.setCusid(CusID);
+        PC.setProcess(process);
+        PC.setTypeChassis(chassistype);
+        PC.setTypeMotherBoard(motherboardtype);
+        PC.setTypeCPU(cputype);
+        PC.setTypeRAM(ramtype);
+        PC.setTypeGraphicscard(gtxtype);
+        PC.setTypeFirstSlotSSD(firstssdtype);
+        PC.setTypeSecondSlotSSD(secondssdtype);
+        PC.setTypeHardDrive(harddisktype);
+        PC.setTypeCoolingSystem(coolingsystemtype);
+        PC.setTypeCasesLighting(caselighttype);
+        PC.setTypePowerSupply(psutype);
+        PC.setTypeWirelessLan(wirelesslantype);
+        PC.setTypeOS(ostype);
+        PC.setTypeWarrantyPackage(warrantytype);
+        PC.setTotalPrice(totalprice);
+
     }
+
 }

@@ -1,7 +1,6 @@
 package com.example.assignment;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,12 +11,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.assignment.Database.DBHelper;
 import com.example.assignment.Model.Customer;
 import com.example.assignment.Model.Global;
-import com.example.assignment.PCBuild.DesktopBuild;
 
 import java.util.ArrayList;
 
 public class AdminPage extends AppCompatActivity {
-    Button CusList,Logout,MainPage,CusOrder;
+    Button CusList,Logout,CusOrder;
     private ArrayList<Customer> customerlist =new ArrayList<Customer>();
     private DBHelper DBHelper;
     String fullname;
@@ -36,26 +34,26 @@ public class AdminPage extends AppCompatActivity {
     private void findViews(){
         CusList = findViewById(R.id.btn_cuslist);
         Logout = findViewById(R.id.btn_logout);
-        MainPage = findViewById(R.id.btn_mainpage);
         CusOrder = findViewById(R.id.btn_cusorder);
-        tvfullname = findViewById(R.id.fullname);
+        tvfullname = findViewById(R.id.adminfullname);
     }
 
     private void setListeners(){
-        MainPage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(AdminPage.this, HomePage.class);
-                startActivity(i);
-                finish();
 
-            }
-        });
 
         CusList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(AdminPage.this, CustomerList.class);
+                startActivity(i);
+
+            }
+        });
+
+        CusOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(AdminPage.this, CustomerOrder.class);
                 startActivity(i);
 
             }
