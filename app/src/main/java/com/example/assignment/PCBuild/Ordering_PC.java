@@ -13,7 +13,6 @@ import com.example.assignment.Database.DBHelper;
 import com.example.assignment.HomePage;
 import com.example.assignment.Model.Global;
 import com.example.assignment.Model.PC;
-import com.example.assignment.OrderHistory;
 import com.example.assignment.R;
 
 public class Ordering_PC extends AppCompatActivity {

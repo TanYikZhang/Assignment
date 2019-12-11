@@ -24,15 +24,18 @@
 
         <activity android:name=".HomePage" />
 
-        <activity android:name=".CustomerOrder"
-                  android:parentActivityName=".AdminPage"/>
+        <activity android:name=".Admin.CustomerOrder"
+                  android:parentActivityName=".Admin.AdminPage"/>
 
 
-        <activity android:name=".CustomerList"
-                  android:parentActivityName=".AdminPage" />
+        <activity android:name=".Admin.CustomerList"
+                  android:parentActivityName=".Admin.AdminPage" />
 
-        <activity android:name=".OrderHistory"
+        <activity android:name=".PCBuild.OrderHistory"
                   android:parentActivityName=".HomePage"/>
+
+        <activity android:name=".PCBuild.PCHistoryDetails"
+            android:parentActivityName=".PCBuild.OrderHistory"/>
 
         <activity android:name=".PCBuild.Ordering_PC"
                   android:parentActivityName=".PCBuild.DesktopBuild"/>
@@ -41,7 +44,7 @@
                   android:parentActivityName=".HomePage" />
 
 
-        <activity android:name=".AdminPage"
+        <activity android:name=".Admin.AdminPage"
                   android:parentActivityName=".HomePage" />
 
 

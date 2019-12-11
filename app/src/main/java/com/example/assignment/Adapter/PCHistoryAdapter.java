@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.assignment.Model.Global;
 import com.example.assignment.Model.PC;
 import com.example.assignment.R;
 
@@ -24,6 +25,7 @@ public class PCHistoryAdapter extends ArrayAdapter<PC>{
         TextView tvdate;
         TextView tvprice;
         TextView tvprocess;
+        TextView tvcusid;
     }
 
     public PCHistoryAdapter(ArrayList<PC> data, Context context){
@@ -43,6 +45,7 @@ public class PCHistoryAdapter extends ArrayAdapter<PC>{
             holder = new ViewHolder();
             convertView = LayoutInflater.from(context).inflate(R.layout.pc_item,parent,false);
 
+            holder.tvcusid = convertView.findViewById(R.id.setpccus);
             holder.tvid = convertView.findViewById(R.id.setpcid);
             holder.tvdate = convertView.findViewById(R.id.setpcdate);
             holder.tvprice = convertView.findViewById(R.id.setpcprice);
@@ -54,6 +57,9 @@ public class PCHistoryAdapter extends ArrayAdapter<PC>{
             holder= (ViewHolder) convertView.getTag();
 
         }
+
+
+        holder.tvcusid.setText(Integer.toString(PC.getCusid()));
         holder.tvid.setText(Integer.toString(PC.getId()));
         holder.tvdate.setText(PC.getDateBuild());
         holder.tvprice.setText("RM "+Integer.toString(PC.getTotalPrice()));

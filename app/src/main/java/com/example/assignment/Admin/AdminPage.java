@@ -1,4 +1,4 @@
-package com.example.assignment;
+package com.example.assignment.Admin;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,8 +9,10 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.assignment.Database.DBHelper;
+import com.example.assignment.LoginPage;
 import com.example.assignment.Model.Customer;
 import com.example.assignment.Model.Global;
+import com.example.assignment.R;
 
 import java.util.ArrayList;
 

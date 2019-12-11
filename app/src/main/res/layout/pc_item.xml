@@ -3,70 +3,186 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    >
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:background="@drawable/box"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:bottom="3sp">
 
-        <TextView
-            style="@style/defaultfont"
-            android:id="@+id/setpcid"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textAlignment="center"
-            android:text="ID"
-            android:layout_margin="10sp"
-            android:textStyle="bold"
-            android:textSize="16sp"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:orientation="vertical">
-            <TextView
-                android:id="@+id/setpcdate"
-                style="@style/defaultfont"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                tools:text="Date"
-                android:layout_marginLeft="15sp"
-                android:layout_marginBottom="10dp"/>
 
-            <TextView
-                android:id="@+id/setpcprice"
-                style="@style/defaultfont"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textSize="16sp"
-                tools:text="Price"
-                android:layout_marginLeft="15sp"
-                android:layout_marginBottom="10dp"/>
-
-            <TextView
-                android:id="@+id/setpcprocess"
-                style="@style/defaultfont"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                tools:text="Process"
-                android:layout_marginLeft="15sp"
-                android:layout_marginBottom="10dp"/>
+                android:layout_margin="3dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/defaultfont"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="6"
+                    android:text="PC ID"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/setpcid"
+                    style="@style/defaultfont"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="13"
+                    android:textSize="12sp"
+                    android:textAllCaps="false"
+                    tools:text="PC ID" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/defaultfont"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="6"
+                    android:text="Customer ID"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/setpccus"
+                    style="@style/defaultfont"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="13"
+                    android:textSize="12sp"
+                    android:textAllCaps="false"
+                    tools:text="Customer ID" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/defaultfont"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="6"
+                    android:text="Build Date"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/setpcdate"
+                    style="@style/defaultfont"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="13"
+                    android:textSize="12sp"
+                    android:textAllCaps="false"
+                    tools:text="Date" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/defaultfont"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="6"
+                    android:text="TOTAL PRICE"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/setpcprice"
+                    style="@style/defaultfont"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="13"
+                    android:textSize="12sp"
+                    android:textAllCaps="false"
+                    tools:text="Price" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/defaultfont"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="6"
+                    android:text="Process"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/setpcprocess"
+                    style="@style/defaultfont"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="13"
+                    android:textSize="12sp"
+                    android:textAllCaps="false"
+                    tools:text="Process" />
+            </LinearLayout>
+
         </LinearLayout>
-
     </LinearLayout>
-
-
-
 
 
 </LinearLayout>

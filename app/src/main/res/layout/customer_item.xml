@@ -50,6 +50,7 @@
                     android:layout_gravity="center"
                     android:layout_weight="13"
                     android:textSize="12sp"
+                    android:textAllCaps="false"
                     tools:text="ID" />
             </LinearLayout>
             <LinearLayout
@@ -80,6 +81,7 @@
                     android:layout_gravity="center"
                     android:layout_weight="13"
                     android:textSize="12sp"
+                    android:textAllCaps="false"
                     tools:text="Email" />
             </LinearLayout>
             <LinearLayout
@@ -110,6 +112,7 @@
                     android:layout_gravity="center"
                     android:layout_weight="13"
                     android:textSize="12sp"
+                    android:textAllCaps="false"
                     tools:text="Name" />
             </LinearLayout>
             <LinearLayout
@@ -140,6 +143,7 @@
                     android:layout_gravity="center"
                     android:layout_weight="13"
                     android:textSize="12sp"
+                    android:textAllCaps="false"
                     tools:text="Phone number" />
             </LinearLayout>
 

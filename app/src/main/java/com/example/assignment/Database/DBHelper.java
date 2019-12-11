@@ -143,6 +143,29 @@ public class DBHelper extends SQLiteOpenHelper {
         return contactArrayList;
     }
 
+    public ArrayList<Customer> getCustomer(String text){
+        ArrayList<Customer> contactArrayList = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor res = db.rawQuery("SELECT * FROM " + Customer.TABLE_NAME +" WHERE "+Customer.COLOMN_ACCESSCONTROL +" = 2 "
+                                    + " AND " + Customer.COLOMN_FULLNAME + " LIKE " +  "'%" + text + "%'" , null);
+        res.moveToFirst();
+
+        while (!res.isAfterLast()){
+            Customer customer = new Customer();
+            customer.setId(res.getInt(res.getColumnIndex(Customer.COLOMN_ID)));
+            customer.setEmail(res.getString(res.getColumnIndex(Customer.COLOMN_EMAIL)));
+            customer.setFullname(res.getString(res.getColumnIndex(Customer.COLOMN_FULLNAME)));
+            customer.setPhoneNumber(res.getString(res.getColumnIndex(Customer.COLOMN_PHONE_NUMBER)));
+            customer.setPassword(res.getString(res.getColumnIndex(Customer.COLOMN_PASSWORD)));
+            customer.setAccessControl(res.getInt(res.getColumnIndex(Customer.COLOMN_ACCESSCONTROL)));
+
+            contactArrayList.add(customer);
+            res.moveToNext();
+        }
+        res.close();
+        return contactArrayList;
+    }
+
     public ArrayList<Customer> getAllPerson(){
         ArrayList<Customer> contactArrayList = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
@@ -167,7 +190,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
     public boolean insertOrderPC(PC PC){
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         String strDate = sdf.format(new Date());
 
         SQLiteDatabase db= getWritableDatabase();
@@ -229,7 +252,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public ArrayList<PC> getAllOrder(){
         ArrayList<PC> OrderPCArrayList = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
-        Cursor res = db.rawQuery("SELECT * FROM " + PC.TABLE_NAME , null);
+        Cursor res = db.rawQuery("SELECT * FROM " + PC.TABLE_NAME + " ORDER BY " + PC.COLOMN_ID + " DESC" , null);
         res.moveToFirst();
 
         while (!res.isAfterLast()){
@@ -261,10 +284,80 @@ public class DBHelper extends SQLiteOpenHelper {
         return OrderPCArrayList;
     }
 
-    public ArrayList<PC> getOrderHistory(int id){
+    public ArrayList<PC> getOrder(int id){
         ArrayList<PC> OrderPCArrayList = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
-        Cursor res = db.rawQuery("SELECT * FROM " + PC.TABLE_NAME + " WHERE "+ PC.COLOMN_CUSID +" = " + id, null);
+        Cursor res = db.rawQuery("SELECT * FROM " + PC.TABLE_NAME + " WHERE "+ PC.COLOMN_ID +" = " + id + " ORDER BY " + PC.COLOMN_ID + " DESC" , null);
+        res.moveToFirst();
+
+        while (!res.isAfterLast()){
+            PC PC = new PC();
+            PC.setId(res.getInt(res.getColumnIndex(PC.COLOMN_ID)));
+            PC.setCusid(res.getInt(res.getColumnIndex(PC.COLOMN_CUSID)));
+            PC.setDateBuild(res.getString(res.getColumnIndex(PC.COLOMN_DATE)));
+            PC.setProcess(res.getString(res.getColumnIndex(PC.COLOMN_PROCESS)));
+            PC.setTypeChassis(res.getString(res.getColumnIndex(PC.COLOMN_CHASSIS)));
+            PC.setTypeMotherBoard(res.getString(res.getColumnIndex(PC.COLOMN_MOTHERBOARD)));
+            PC.setTypeCPU(res.getString(res.getColumnIndex(PC.COLOMN_CPU)));
+            PC.setTypeRAM(res.getString(res.getColumnIndex(PC.COLOMN_RAM)));
+            PC.setTypeGraphicscard(res.getString(res.getColumnIndex(PC.COLOMN_GRAPHICSCARD)));
+            PC.setTypeFirstSlotSSD(res.getString(res.getColumnIndex(PC.COLOMN_FIRSTSSD)));
+            PC.setTypeSecondSlotSSD(res.getString(res.getColumnIndex(PC.COLOMN_SECONDSSD)));
+            PC.setTypeHardDrive(res.getString(res.getColumnIndex(PC.COLOMN_HDD)));
+            PC.setTypeCoolingSystem(res.getString(res.getColumnIndex(PC.COLOMN_COOLINGSYSTEM)));
+            PC.setTypeCasesLighting(res.getString(res.getColumnIndex(PC.COLOMN_CASESLIGHTING)));
+            PC.setTypePowerSupply(res.getString(res.getColumnIndex(PC.COLOMN_PSU)));
+            PC.setTypeWirelessLan(res.getString(res.getColumnIndex(PC.COLOMN_WIRELESSLAN)));
+            PC.setTypeOS(res.getString(res.getColumnIndex(PC.COLOMN_OS)));
+            PC.setTypeWarrantyPackage(res.getString(res.getColumnIndex(PC.COLOMN_WARRANTY)));
+            PC.setTotalPrice(res.getInt(res.getColumnIndex(PC.COLOMN_TOTALPRICE)));
+
+            OrderPCArrayList.add(PC);
+            res.moveToNext();
+        }
+        res.close();
+        return OrderPCArrayList;
+    }
+
+    public ArrayList<PC> getAllOrderHistory(int id){
+        ArrayList<PC> OrderPCArrayList = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor res = db.rawQuery("SELECT * FROM " + PC.TABLE_NAME + " WHERE "+ PC.COLOMN_CUSID +" = " + id + " ORDER BY " + PC.COLOMN_ID + " DESC", null);
+        res.moveToFirst();
+
+        while (!res.isAfterLast()){
+            PC PC = new PC();
+            PC.setId(res.getInt(res.getColumnIndex(PC.COLOMN_ID)));
+            PC.setCusid(res.getInt(res.getColumnIndex(PC.COLOMN_CUSID)));
+            PC.setDateBuild(res.getString(res.getColumnIndex(PC.COLOMN_DATE)));
+            PC.setProcess(res.getString(res.getColumnIndex(PC.COLOMN_PROCESS)));
+            PC.setTypeChassis(res.getString(res.getColumnIndex(PC.COLOMN_CHASSIS)));
+            PC.setTypeMotherBoard(res.getString(res.getColumnIndex(PC.COLOMN_MOTHERBOARD)));
+            PC.setTypeCPU(res.getString(res.getColumnIndex(PC.COLOMN_CPU)));
+            PC.setTypeRAM(res.getString(res.getColumnIndex(PC.COLOMN_RAM)));
+            PC.setTypeGraphicscard(res.getString(res.getColumnIndex(PC.COLOMN_GRAPHICSCARD)));
+            PC.setTypeFirstSlotSSD(res.getString(res.getColumnIndex(PC.COLOMN_FIRSTSSD)));
+            PC.setTypeSecondSlotSSD(res.getString(res.getColumnIndex(PC.COLOMN_SECONDSSD)));
+            PC.setTypeHardDrive(res.getString(res.getColumnIndex(PC.COLOMN_HDD)));
+            PC.setTypeCoolingSystem(res.getString(res.getColumnIndex(PC.COLOMN_COOLINGSYSTEM)));
+            PC.setTypeCasesLighting(res.getString(res.getColumnIndex(PC.COLOMN_CASESLIGHTING)));
+            PC.setTypePowerSupply(res.getString(res.getColumnIndex(PC.COLOMN_PSU)));
+            PC.setTypeWirelessLan(res.getString(res.getColumnIndex(PC.COLOMN_WIRELESSLAN)));
+            PC.setTypeOS(res.getString(res.getColumnIndex(PC.COLOMN_OS)));
+            PC.setTypeWarrantyPackage(res.getString(res.getColumnIndex(PC.COLOMN_WARRANTY)));
+            PC.setTotalPrice(res.getInt(res.getColumnIndex(PC.COLOMN_TOTALPRICE)));
+
+            OrderPCArrayList.add(PC);
+            res.moveToNext();
+        }
+        res.close();
+        return OrderPCArrayList;
+    }
+
+    public ArrayList<PC> getOrderHistory(int cusid,int id){
+        ArrayList<PC> OrderPCArrayList = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor res = db.rawQuery("SELECT * FROM " + PC.TABLE_NAME + " WHERE "+ PC.COLOMN_CUSID +" = " + cusid + " AND " + PC.COLOMN_ID + " = " + id +" ORDER BY " + PC.COLOMN_ID + " DESC", null);
         res.moveToFirst();
 
         while (!res.isAfterLast()){
