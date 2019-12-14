@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#000000">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        tools:context=".LoginPage">
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:text="⦯THUNDER⦬"
+            android:textColor="#FFFFFF" />
+
+        <ImageView
+            android:layout_width="360dp"
+            android:layout_gravity="center"
+            android:layout_height="225dp"
+            android:background="@drawable/logo"></ImageView>
+
+        <LinearLayout
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical"
+            android:background="@drawable/rounded_outer">
+
+            <com.example.assignment.Import.SuperEditText
+                android:id="@+id/edit_username"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:textAlignment="center"
+                android:paddingTop="5dp"
+                android:paddingLeft="5dp"
+                android:paddingBottom="5dp"
+                android:paddingRight="5dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_gravity="center"
+                android:inputType="text"
+                android:textSize="20sp"
+                android:background="@drawable/rounded_text"
+
+                app:ic_left_click="@drawable/user_click"
+                app:ic_left_unclick="@drawable/user_unclick"
+                app:left_x="0"
+                app:left_y="0"
+                app:left_width="60"
+                app:left_height="60"
+
+                app:ic_delete="@drawable/delete"
+                app:delete_x="0"
+                app:delete_y="0"
+                app:delete_width="80"
+                app:delete_height="80"
+
+                app:lineColor_click="@color/colorfocus"
+                app:lineColor_unclick="@color/colorDefault"
+                app:linePosition="1"
+
+                app:cursor="@drawable/cursor"
+
+                />
+
+
+            <com.example.assignment.Import.SuperEditText
+                android:id="@+id/edit_password"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:inputType="textPassword"
+                android:hint="Password"
+                android:textAlignment="center"
+                android:paddingTop="5dp"
+                android:paddingLeft="5dp"
+                android:paddingBottom="5dp"
+                android:paddingRight="5dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:textSize="20sp"
+                android:background="@drawable/rounded_text"
+
+                app:ic_left_click="@drawable/password2_click"
+                app:ic_left_unclick="@drawable/password2_unclick"
+                app:left_x="0"
+                app:left_y="0"
+                app:left_width="60"
+                app:left_height="60"
+
+                app:ic_delete="@drawable/delete"
+                app:delete_x="0"
+                app:delete_y="0"
+                app:delete_width="80"
+                app:delete_height="80"
+
+                app:lineColor_click="@color/colorfocus"
+                app:lineColor_unclick="@color/colorDefault"
+                app:linePosition="1"
+
+                app:cursor="@drawable/cursor"
+
+                />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_gravity="center"
+            style="@style/defaultfont"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Login"
+            android:background="@color/colorDarkRed" />
+
+
+        <TextView
+            android:id="@+id/tv_register"
+            style="@style/defaultfont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="Register"
+            android:textSize="13sp"
+            android:clickable="true" />
+
+    </LinearLayout>
+</ScrollView>

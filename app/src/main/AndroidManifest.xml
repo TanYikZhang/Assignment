@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.assignment">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".Model.Global"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".EditProfile"></activity>
+        <activity android:name=".LoginPage">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".RegisterPage"
+            android:parentActivityName=".HomePage" />
+        <activity android:name=".HomePage" />
+        <activity
+            android:name=".Admin.CustomerOrder"
+            android:parentActivityName=".Admin.AdminPage" />
+        <activity
+            android:name=".Admin.CustomerList"
+            android:parentActivityName=".Admin.AdminPage" />
+        <activity
+            android:name=".PCBuild.OrderHistory"
+            android:parentActivityName=".HomePage" />
+        <activity
+            android:name=".PCBuild.PCHistoryDetails"
+            android:parentActivityName=".PCBuild.OrderHistory" />
+        <activity
+            android:name=".PCBuild.Ordering_PC"
+            android:parentActivityName=".PCBuild.DesktopBuild" />
+        <activity
+            android:name=".PCBuild.DesktopBuild"
+            android:parentActivityName=".HomePage" />
+        <activity
+            android:name=".Admin.AdminPage"
+            android:parentActivityName=".HomePage" />
+    </application>
+
+</manifest>

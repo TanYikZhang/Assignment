@@ -1,0 +1,903 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PCBuild.DesktopBuild">
+
+    <LinearLayout
+        android:id="@+id/linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:background="#151515"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="20dp">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/desktop" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/defaultfont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="TOTAL PRICE" />
+
+                <TextView
+                    android:id="@+id/price"
+                    style="@style/defaultfont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    tools:text="RM2000" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnorder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                style="@style/defaultfont"
+                android:background="@color/colorDarkRed"
+                android:text="Order → " />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/linearlayout"
+        android:background="#000000">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/box"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/defaultfont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="5dp"
+                        android:text="Power Supply Unit"
+                        android:textAlignment="center"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/imagepsu"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center" />
+
+                    <RadioGroup
+                        android:id="@+id/pcpsu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/psu600w"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="600W FSP / EVGA PSU" />
+
+                        <RadioButton
+                            android:id="@+id/psu650w"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="650W EVGA 80+ GOLD PSU (+RM139.00)" />
+                    </RadioGroup>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/box"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/defaultfont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="5dp"
+                        android:text="Chassis Options"
+                        android:textAlignment="center"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/imagechassis"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center" />
+
+                    <RadioGroup
+                        android:id="@+id/pcchassis"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/chassisblack"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="Classic Black Design Chassis" />
+
+                        <RadioButton
+                            android:id="@+id/chassisrgb"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Rapid M3 RGB Chassis (+RM39.00)" />
+                    </RadioGroup>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/box"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/defaultfont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="5dp"
+                        android:text="Motherboard"
+                        android:textAlignment="center"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/imagemotherboard"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center" />
+
+                    <RadioGroup
+                        android:id="@+id/pcmotherboard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/mboard1"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="Intel - ASROCK H310 M.2-G Motherboard (2 RAM SLOT)" />
+
+                        <RadioButton
+                            android:id="@+id/mboard2"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Intel - ASROCK B365 HDV Motherboard (2 RAM SLOTS) (+RM49.00)" />
+                    </RadioGroup>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/box"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/defaultfont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="5dp"
+                        android:text="Central Processing unit (CPU)"
+                        android:textAlignment="center"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/imagecpu"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center" />
+
+                    <RadioGroup
+                        android:id="@+id/pccpu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/cpui5"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="Intel® Core™ i5-9300H Processor" />
+
+                        <RadioButton
+                            android:id="@+id/cpui7"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Intel® Core™ i7-9750H Processor (+RM329.00)" />
+                    </RadioGroup>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/box"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/defaultfont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="5dp"
+                        android:text="GRAPHICS CARDS"
+                        android:textAlignment="center"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/imagegtx"
+                        android:layout_width="120dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center" />
+
+                    <RadioGroup
+                        android:id="@+id/pcgtx"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/gtx1050"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="NVIDIA Geforce GTX 1050 3GB" />
+
+                        <RadioButton
+                            android:id="@+id/gtx1650"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="NVIDIA GEFORCE GTX 1650 4GB GDDR5 (+RM279.00)" />
+                    </RadioGroup>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/box"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/defaultfont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="5dp"
+                        android:text="Memory(RAM)"
+                        android:textAlignment="center"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/imageram"
+                        android:layout_width="120dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center" />
+
+                    <RadioGroup
+                        android:id="@+id/pcram"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/ram_8gb"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="8GB (8GB x 1) DDR4 RAM" />
+
+                        <RadioButton
+                            android:id="@+id/ram_8gbx2"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="16GB (8GB x 2) DDR4 RAM (+RM139.00)" />
+
+                        <RadioButton
+                            android:id="@+id/ram_16gb"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="16GB (16GB x 1) DDR4 RAM (+RM149.00)" />
+
+                        <RadioButton
+                            android:id="@+id/ram_16gbx2"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="32GB (16GB x 2) DDR4 RAM (+RM439.00)" />
+                    </RadioGroup>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/box"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/defaultfont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="5dp"
+                        android:text="First SSD Slot"
+                        android:textAlignment="center"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/imagessd1"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center" />
+
+                    <RadioGroup
+                        android:id="@+id/pcssd1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/ssd256gb"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="256GB M.2 NVME ULTRA FAST SSD " />
+
+                        <RadioButton
+                            android:id="@+id/ssd512gb"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="512GB M.2 NVME ULTRA FAST SSD (+RM149.00)" />
+
+                        <RadioButton
+                            android:id="@+id/ssd1tb"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="1TB M.2 NVME ULTRA FAST SSD (+RM599.00)" />
+
+
+                    </RadioGroup>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/box"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/defaultfont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="5dp"
+                        android:text="SECOND SSD Slot"
+                        android:textAlignment="center"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/imagessd2"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center" />
+
+                    <RadioGroup
+                        android:id="@+id/pcssd2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/ssdnone2"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="NONE" />
+
+                        <RadioButton
+                            android:id="@+id/ssd256gb2"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="256GB M.2 NVME ULTRA FAST SSD (+RM329.00)" />
+
+                        <RadioButton
+                            android:id="@+id/ssd512gb2"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="512GB M.2 NVME ULTRA FAST SSD (+RM479.00)" />
+
+                        <RadioButton
+                            android:id="@+id/ssd1tb2"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="1TB M.2 NVME ULTRA FAST SSD (+RM899.00)" />
+
+
+                    </RadioGroup>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/box"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/defaultfont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="5dp"
+                        android:text="Hard Disk"
+                        android:textAlignment="center"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/imageharddisk"
+                        android:layout_width="100dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center" />
+
+                    <RadioGroup
+                        android:id="@+id/pcharddisk"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/harddisknone"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="None" />
+
+                        <RadioButton
+                            android:id="@+id/harddisk1tb"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="1TB Toshiba HDD (+RM229.00)" />
+
+                        <RadioButton
+                            android:id="@+id/harddisk2tb"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="2TB Toshiba HDD (+RM349.00)" />
+                    </RadioGroup>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/box"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/defaultfont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="5dp"
+                        android:text="CPU Cooling System"
+                        android:textAlignment="center"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/imagecoolingsystem"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center" />
+
+                    <RadioGroup
+                        android:id="@+id/pccoolingsystem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/aircoolingbase"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="INTEL/AMD stock cooling fan solution" />
+
+                        <RadioButton
+                            android:id="@+id/aircoolingpremium"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="AIR COOLING:Premium CPU cooling fan (+RM99.00)" />
+
+                        <RadioButton
+                            android:id="@+id/watercoolingrgb"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="WATERCOOLING:SPECTRA GLACIER 120 | 120 mm Radiator | 120mm RGB Spectra Fans x 1 (+RM209.00)" />
+                    </RadioGroup>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/box"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/defaultfont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="5dp"
+                        android:text="Case Lighting"
+                        android:textAlignment="center"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/imagecaselight"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center" />
+
+                    <RadioGroup
+                        android:id="@+id/pccaselight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/lightnone"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="None" />
+
+                        <RadioButton
+                            android:id="@+id/lightled"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="Advanced LED (+RM99.00)" />
+
+                    </RadioGroup>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/box"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/defaultfont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="5dp"
+                        android:text="Case Lighting"
+                        android:textAlignment="center"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/imagewirelesslan"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center" />
+
+                    <RadioGroup
+                        android:id="@+id/pcwirelesslan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/wirelesslannone"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="None" />
+
+                        <RadioButton
+                            android:id="@+id/wirelesslanAC56"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="ASUS PCE-AC56 Dual-band Wireless-AC1300 (+RM299.00)" />
+
+                        <RadioButton
+                            android:id="@+id/wirelesslanAC68"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="ASUS PCE-AC68 Dual-band Wireless-AC1900 (+RM419.00)" />
+
+                        <RadioButton
+                            android:id="@+id/wirelesslanAC88"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="ASUS PCE-AC88 Dual-band Wireless-AC3100(+RM509.00)" />
+
+                    </RadioGroup>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/box"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/defaultfont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="5dp"
+                        android:text="Operating System (OS)"
+                        android:textAlignment="center"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/imageos"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center" />
+
+                    <RadioGroup
+                        android:id="@+id/pcos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/windowsunactive"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="Windows 10 64 Bit (Unactivated, No License Key)" />
+
+                        <RadioButton
+                            android:id="@+id/windows10home"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="Windows 10 Home (+RM479.00)" />
+
+                        <RadioButton
+                            android:id="@+id/windows10professional"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="Windows 10 Professional (+RM609.00)" />
+                    </RadioGroup>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/box"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/defaultfont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="5dp"
+                        android:text="Warranty Package"
+                        android:textAlignment="center"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/imagewarranty"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center" />
+
+                    <RadioGroup
+                        android:id="@+id/pcwarranty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/warranty2years"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="2 Years Warranty" />
+
+                        <RadioButton
+                            android:id="@+id/warranty3years"
+                            style="@style/defaultfont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="3 Years Warranty (+RM299.00)" />
+                    </RadioGroup>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</RelativeLayout>
