@@ -18,7 +18,7 @@ import com.example.assignment.PCBuild.OrderHistory;
 import java.util.ArrayList;
 
 public class HomePage extends AppCompatActivity {
-    Button Build, Logout, Admin, History;
+    Button Build, Logout, Admin, ChangePassword, History;
     private ArrayList<Customer> customerlist = new ArrayList<Customer>();
     private DBHelper DBHelper;
     String fullname;
@@ -39,6 +39,7 @@ public class HomePage extends AppCompatActivity {
         Logout = findViewById(R.id.btn_logout);
         Admin = findViewById(R.id.btn_admin);
         History = findViewById(R.id.btn_history);
+        ChangePassword = findViewById(R.id.btn_changepassword);
         tvfullname = findViewById(R.id.homefullname);
     }
 
@@ -64,6 +65,14 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(HomePage.this, OrderHistory.class);
+                startActivity(i);
+
+            }
+        });
+        ChangePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HomePage.this, EditPassword.class);
                 startActivity(i);
 
             }

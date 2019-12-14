@@ -155,7 +155,7 @@ public class PCHistoryDetails extends AppCompatActivity {
     private void Dialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(false)
-                .setMessage("Confirm your build?")
+                .setMessage("Please Ensure You Are Built")
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -176,8 +176,6 @@ public class PCHistoryDetails extends AppCompatActivity {
                     }
                 });
         builder.show();
-
-
     }
 
 }

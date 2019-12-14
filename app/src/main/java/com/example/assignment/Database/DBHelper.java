@@ -188,7 +188,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
     public boolean insertOrderPC(PC PC) {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String strDate = sdf.format(new Date());
 
         SQLiteDatabase db = getWritableDatabase();
@@ -388,12 +388,12 @@ public class DBHelper extends SQLiteOpenHelper {
         return OrderPCArrayList;
     }
 
-    public ArrayList<PC> getDatebetween() {
+    public ArrayList<PC> getDatebetween(int x, int y) {
         ArrayList<PC> OrderPCArrayList = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
-        Cursor res = db.rawQuery("SELECT * FROM " + PC.TABLE_NAME + " WHERE " + PC.COLOMN_DATE + " BETWEEN " + "14-12-2019" + " AND " + "15-12-2019" + " ORDER BY " + PC.COLOMN_ID + " DESC", null);
+        //Cursor res = db.rawQuery("SELECT * FROM " + PC.TABLE_NAME + " WHERE "+ PC.COLOMN_DATE +" BETWEEN " + "date('2019-12-12')" + " AND "+ "date('2019-12-18')" + " ORDER BY " + PC.COLOMN_ID + " DESC" , null);
+        Cursor res = db.rawQuery("SELECT * FROM " + PC.TABLE_NAME + " WHERE strftime('%Y %m'," + PC.COLOMN_DATE + ") = '" + x + " " + y + "'", null);
         res.moveToFirst();
-
         while (!res.isAfterLast()) {
             PC PC = new PC();
             PC.setId(res.getInt(res.getColumnIndex(PC.COLOMN_ID)));

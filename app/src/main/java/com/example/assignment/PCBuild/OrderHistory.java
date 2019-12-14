@@ -33,7 +33,7 @@ public class OrderHistory extends AppCompatActivity {
         findViews();
         setUpDatabase();
         setUpAdapter();
-        setListener();
+        //  setListener();
     }
 
     private void findViews() {
@@ -110,6 +110,7 @@ public class OrderHistory extends AppCompatActivity {
         Global global = (Global) getApplicationContext();
         int ID = global.getId();
         OrderList = dbHelper.getAllOrderHistory(ID);
+        System.out.println(OrderList.size());
         adapter = new PCHistoryAdapter(OrderList, this);
         ListViewData.setAdapter(adapter);
 

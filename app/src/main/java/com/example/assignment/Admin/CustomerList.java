@@ -28,8 +28,9 @@ public class CustomerList extends AppCompatActivity {
         setContentView(R.layout.activity_customer_list);
         findViews();
         setListener();
+        setUpDatabase();
+
         if (CustomerList.size() > 0) {
-            setUpDatabase();
             setUpAdapter();
         }
     }
@@ -69,6 +70,7 @@ public class CustomerList extends AppCompatActivity {
 
     private void setUpDatabase() {
         dbHelper = new DBHelper(this);
+        CustomerList = dbHelper.getAllCustomer();
     }
 
     private void setUpAdapter() {

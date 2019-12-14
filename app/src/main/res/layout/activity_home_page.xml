@@ -72,6 +72,16 @@
                 android:background="@color/colorDarkRed" />
 
             <Button
+                android:id="@+id/btn_changepassword"
+                android:layout_gravity="center"
+                style="@style/defaultfont"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Change Password"
+                android:background="@color/colorDarkRed" />
+
+            <Button
                 android:id="@+id/btn_logout"
                 android:layout_gravity="center"
                 style="@style/defaultfont"
