@@ -1,4 +1,4 @@
-package com.example.assignment;
+package com.example.assignment.BaseInterface.home;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.assignment.Database.DBHelper;
 import com.example.assignment.Model.Customer;
 import com.example.assignment.Model.Global;
+import com.example.assignment.R;
 
 import java.security.MessageDigest;
 import java.util.ArrayList;
@@ -32,6 +33,8 @@ public class LoginPage extends AppCompatActivity {
         findViews();
         setUpDatabase();
         setListener();
+
+
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.example.assignment.Admin;
+package com.example.assignment.FragmentAdmin.AdminFragContent;
 
 import androidx.appcompat.app.AppCompatActivity;
 

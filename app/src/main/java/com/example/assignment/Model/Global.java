@@ -6,6 +6,7 @@ public class Global extends Application {
 
     private int id;
     private int viewaccess;
+    private int status;
 
     public int getId() {
         return id;
@@ -22,6 +23,5 @@ public class Global extends Application {
     public void setViewaccess(int viewaccess) {
         this.viewaccess = viewaccess;
     }
-
 
 }

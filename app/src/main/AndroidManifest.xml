@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+
     <application
         android:name=".Model.Global"
         android:allowBackup="true"
@@ -13,20 +15,24 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".FragmentAdmin.AdminFrag"
-            android:parentActivityName=".HomePage">
+            android:name=".BaseInterface.home.HomePage"
+            android:label="@string/title_activity_navigation_drawer"
+            android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
         <activity
-            android:name=".Admin.DateBetweenPC"
+            android:name=".FragmentAdmin.AdminFrag"
+            android:parentActivityName=".HomePage"></activity>
+        <activity
+            android:name=".FragmentAdmin.AdminFragContent.DateBetweenPC"
             android:parentActivityName=".Admin.Summary" />
         <activity
             android:name=".Admin.Summary"
             android:parentActivityName=".Admin.AdminPage" />
         <activity
-            android:name=".EditPassword"
-            android:parentActivityName=".LoginPage" />
-        <activity android:name=".LoginPage">
+            android:name=".BaseInterface.home.EditPassword"
+            android:parentActivityName=".BaseInterface.home.LoginPage" />
+        <activity android:name=".BaseInterface.home.LoginPage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,7 +40,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RegisterPage"
+            android:name=".BaseInterface.home.RegisterPage"
             android:parentActivityName=".HomePage" />
         <activity android:name=".HomePage" />
         <activity

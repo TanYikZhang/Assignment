@@ -1,55 +1,58 @@
-package com.example.assignment;
+package com.example.assignment.BaseInterface.home;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
-import com.example.assignment.Admin.AdminPage;
 import com.example.assignment.Database.DBHelper;
 import com.example.assignment.FragmentAdmin.AdminFrag;
 import com.example.assignment.Model.Customer;
 import com.example.assignment.Model.Global;
 import com.example.assignment.PCBuild.DesktopBuild;
 import com.example.assignment.PCBuild.OrderHistory;
+import com.example.assignment.R;
 
 import java.util.ArrayList;
 
-public class HomePage extends AppCompatActivity {
-    Button Build, Logout, Admin, ChangePassword, History;
+public class HomeFragment extends Fragment {
+    private Button Build, Logout, Admin, ChangePassword, History;
     private ArrayList<Customer> customerlist = new ArrayList<Customer>();
-    private DBHelper DBHelper;
-    String fullname;
-    TextView tvfullname;
+    private com.example.assignment.Database.DBHelper DBHelper;
+    private String fullname;
+    private TextView tvfullname;
+    private View root;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_page);
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+
+        root = inflater.inflate(R.layout.activity_home_page, container, false);
         findViews();
         setListeners();
         setUpDatabase();
         findName();
+        return root;
     }
 
 
     private void findViews() {
-        Build = findViewById(R.id.btn_build);
-        Logout = findViewById(R.id.btn_logout);
-        Admin = findViewById(R.id.btn_admin);
-        History = findViewById(R.id.btn_history);
-        ChangePassword = findViewById(R.id.btn_changepassword);
-        tvfullname = findViewById(R.id.homefullname);
+        Build = root.findViewById(R.id.btn_build);
+        Admin = root.findViewById(R.id.btn_admin);
+        History = root.findViewById(R.id.btn_history);
+        tvfullname = root.findViewById(R.id.homefullname);
     }
 
     private void setListeners() {
         Admin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(HomePage.this, AdminFrag.class);
+                Intent i = new Intent(getActivity(), AdminFrag.class);
                 startActivity(i);
             }
         });
@@ -57,7 +60,7 @@ public class HomePage extends AppCompatActivity {
         Build.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(HomePage.this, DesktopBuild.class);
+                Intent i = new Intent(getActivity(), DesktopBuild.class);
                 startActivity(i);
 
             }
@@ -66,32 +69,15 @@ public class HomePage extends AppCompatActivity {
         History.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(HomePage.this, OrderHistory.class);
+                Intent i = new Intent(getActivity(), OrderHistory.class);
                 startActivity(i);
 
-            }
-        });
-        ChangePassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(HomePage.this, EditPassword.class);
-                startActivity(i);
-
-            }
-        });
-
-        Logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(HomePage.this, LoginPage.class);
-                startActivity(i);
-                finish();
             }
         });
     }
 
     private void findName() {
-        Global global = (Global) getApplicationContext();
+        Global global = (Global) getActivity().getApplicationContext();
         int id = global.getId();
         for (int i = 0; i < customerlist.size(); i++) {
             if (id == customerlist.get(i).getId()) {
@@ -105,7 +91,8 @@ public class HomePage extends AppCompatActivity {
 
 
     private void setUpDatabase() {
-        DBHelper = new DBHelper(this);
+        DBHelper = new DBHelper(getActivity());
         customerlist = DBHelper.getAllPerson();
     }
 }
+

@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:orientation="vertical"
-        tools:context=".LoginPage">
+        tools:context=".BaseInterface.home.LoginPage">
 
         <TextView
             android:layout_width="250dp"

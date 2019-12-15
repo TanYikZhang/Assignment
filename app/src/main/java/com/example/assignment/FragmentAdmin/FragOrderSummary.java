@@ -14,11 +14,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import com.example.assignment.Admin.DateBetweenPC;
-import com.example.assignment.Admin.Summary;
+import com.example.assignment.FragmentAdmin.AdminFragContent.DateBetweenPC;
 import com.example.assignment.Database.DBHelper;
 import com.example.assignment.Model.PC;
 import com.example.assignment.R;
