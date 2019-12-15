@@ -1,4 +1,4 @@
-package com.example.assignment;
+package com.example.assignment.Admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,10 +11,9 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.example.assignment.Adapter.PCHistoryAdapter;
-import com.example.assignment.Admin.CustomerOrder;
 import com.example.assignment.Database.DBHelper;
 import com.example.assignment.Model.PC;
+import com.example.assignment.R;
 
 import java.time.Year;
 import java.util.ArrayList;

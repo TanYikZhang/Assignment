@@ -1,4 +1,4 @@
-package com.example.assignment;
+package com.example.assignment.Admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,11 +13,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.assignment.Adapter.PCHistoryAdapter;
-import com.example.assignment.Admin.CustomerOrder;
 import com.example.assignment.Database.DBHelper;
 import com.example.assignment.Model.Global;
 import com.example.assignment.Model.PC;
 import com.example.assignment.PCBuild.PCHistoryDetails;
+import com.example.assignment.R;
 
 import java.util.ArrayList;
 

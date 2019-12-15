@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,7 +13,6 @@ import com.example.assignment.LoginPage;
 import com.example.assignment.Model.Customer;
 import com.example.assignment.Model.Global;
 import com.example.assignment.R;
-import com.example.assignment.Summary;
 
 import java.util.ArrayList;
 
@@ -67,7 +65,7 @@ public class AdminPage extends AppCompatActivity {
         Summary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(AdminPage.this, com.example.assignment.Summary.class);
+                Intent i = new Intent(AdminPage.this, com.example.assignment.Admin.Summary.class);
                 startActivity(i);
 
             }

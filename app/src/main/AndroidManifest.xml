@@ -13,10 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".DateBetweenPC"
-            android:parentActivityName=".Summary"></activity>
+            android:name=".Admin.DateBetweenPC"
+            android:parentActivityName=".Admin.Summary"></activity>
         <activity
-            android:name=".Summary"
+            android:name=".Admin.Summary"
             android:parentActivityName=".Admin.AdminPage" />
         <activity
             android:name=".EditPassword"
