@@ -98,11 +98,6 @@ public class Summary extends AppCompatActivity {
 
     }
 
-   /* private void setUpAdapter() {;
-        adapter = new PCHistoryAdapter(PClist, this);
-        ListViewData.setAdapter(adapter);
-    }*/
-
     private void setListener() {
         Search.setOnClickListener(new View.OnClickListener() {
             @Override
