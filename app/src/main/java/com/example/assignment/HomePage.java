@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.assignment.Admin.AdminPage;
 import com.example.assignment.Database.DBHelper;
+import com.example.assignment.FragmentAdmin.AdminFrag;
 import com.example.assignment.Model.Customer;
 import com.example.assignment.Model.Global;
 import com.example.assignment.PCBuild.DesktopBuild;
@@ -34,6 +35,7 @@ public class HomePage extends AppCompatActivity {
         findName();
     }
 
+
     private void findViews() {
         Build = findViewById(R.id.btn_build);
         Logout = findViewById(R.id.btn_logout);
@@ -47,7 +49,7 @@ public class HomePage extends AppCompatActivity {
         Admin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(HomePage.this, AdminPage.class);
+                Intent i = new Intent(HomePage.this, AdminFrag.class);
                 startActivity(i);
             }
         });
