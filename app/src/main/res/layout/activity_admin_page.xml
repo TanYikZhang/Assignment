@@ -62,6 +62,16 @@
                 android:background="@color/colorDarkRed" />
 
             <Button
+                android:id="@+id/btn_summary"
+                style="@style/defaultfont"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:background="@color/colorDarkRed"
+                android:text="Order Summary" />
+
+            <Button
                 android:id="@+id/btn_logout"
                 android:layout_gravity="center"
                 style="@style/defaultfont"

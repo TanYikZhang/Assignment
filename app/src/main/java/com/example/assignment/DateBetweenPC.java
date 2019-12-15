@@ -1,4 +1,6 @@
-package com.example.assignment.PCBuild;
+package com.example.assignment;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,37 +10,103 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
-
-import androidx.appcompat.app.AppCompatActivity;
+import android.widget.TextView;
 
 import com.example.assignment.Adapter.PCHistoryAdapter;
+import com.example.assignment.Admin.CustomerOrder;
 import com.example.assignment.Database.DBHelper;
 import com.example.assignment.Model.Global;
 import com.example.assignment.Model.PC;
-import com.example.assignment.R;
+import com.example.assignment.PCBuild.PCHistoryDetails;
 
 import java.util.ArrayList;
 
-public class OrderHistory extends AppCompatActivity {
+
+public class DateBetweenPC extends AppCompatActivity {
     private ListView ListViewData;
-    private EditText Search;
     private ArrayList<PC> OrderList = new ArrayList<>();
     private PCHistoryAdapter adapter;
     private DBHelper dbHelper;
+    private EditText Search;
+    private TextView Date;
+    private int month, year;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_order_history);
+        setContentView(R.layout.activity_date_between_pc);
+        month = getIntent().getIntExtra("month", 0);
+        year = getIntent().getIntExtra("year", 0);
         findViews();
+        setDate();
+        setListener();
+        setUpDatabase();
+        if (OrderList.size() > 0) {
+            setUpAdapter();
+        }
+        Global global = (Global) getApplicationContext();
+        global.setViewaccess(1);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         setUpDatabase();
         setUpAdapter();
-        setListener();
+    }
+
+    private void setDate() {
+        String smonth = "";
+        switch (month) {
+            case 1:
+                smonth = "January";
+                break;
+            case 2:
+                smonth = "February";
+                break;
+            case 3:
+                smonth = "March";
+                break;
+            case 4:
+                smonth = "April";
+                break;
+            case 5:
+                smonth = "May";
+                break;
+            case 6:
+                smonth = "June";
+                break;
+            case 7:
+                smonth = "July";
+                break;
+            case 8:
+                smonth = "August";
+                break;
+            case 9:
+                smonth = "September";
+                break;
+            case 10:
+                smonth = "October";
+                break;
+            case 11:
+                smonth = "November";
+                break;
+            case 12:
+                smonth = "December";
+                break;
+        }
+        if (year == 0 || month == 0) {
+            Date.setText("All-Days History");
+        } else {
+            Date.setText(smonth + " " + Integer.toString(year) + " History");
+        }
+
     }
 
     private void findViews() {
-        ListViewData = findViewById(R.id.lvcusorderhistory);
-        Search = findViewById(R.id.edit_searchmypc);
+        ListViewData = findViewById(R.id.lvsearchorder);
+        Search = findViewById(R.id.edit_searchpc);
+        Date = findViewById(R.id.dateorder);
     }
 
     private void setListener() {
@@ -47,10 +115,7 @@ public class OrderHistory extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 PC PC = (PC) parent.getAdapter().getItem(position);
 
-                Global global = (Global) getApplicationContext();
-                global.setViewaccess(2);
-
-                Intent i = new Intent(OrderHistory.this, PCHistoryDetails.class);
+                Intent i = new Intent(DateBetweenPC.this, PCHistoryDetails.class);
                 i.putExtra("cusid", PC.getCusid());
                 i.putExtra("pcid", PC.getId());
                 i.putExtra("date", PC.getDateBuild());
@@ -73,6 +138,7 @@ public class OrderHistory extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
         Search.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -81,16 +147,15 @@ public class OrderHistory extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 String text = Search.getText().toString();
-                Global global = (Global) getApplicationContext();
-                int ID = global.getId();
+
                 OrderList.clear();
                 adapter.clear();
                 if (text.isEmpty()) {
                     setUpAdapter();
                 } else if (!text.isEmpty()) {
                     int id = Integer.parseInt(text);
-                    OrderList = dbHelper.getOrderHistory(ID, id);
-                    adapter = new PCHistoryAdapter(OrderList, OrderHistory.this);
+                    OrderList = dbHelper.getOrder(id);
+                    adapter = new PCHistoryAdapter(OrderList, DateBetweenPC.this);
                     ListViewData.setAdapter(adapter);
                 }
 
@@ -100,20 +165,21 @@ public class OrderHistory extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
             }
         });
+
+
     }
 
     private void setUpDatabase() {
         dbHelper = new DBHelper(this);
-
+        if (year == 0 || month == 0) {
+            OrderList = dbHelper.getAllOrder();
+        } else {
+            OrderList = dbHelper.getDatebetween(year, month);
+        }
     }
 
     private void setUpAdapter() {
-        Global global = (Global) getApplicationContext();
-        int ID = global.getId();
-        OrderList = dbHelper.getAllOrderHistory(ID);
         adapter = new PCHistoryAdapter(OrderList, this);
         ListViewData.setAdapter(adapter);
-
-
     }
 }

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,11 +14,12 @@ import com.example.assignment.LoginPage;
 import com.example.assignment.Model.Customer;
 import com.example.assignment.Model.Global;
 import com.example.assignment.R;
+import com.example.assignment.Summary;
 
 import java.util.ArrayList;
 
 public class AdminPage extends AppCompatActivity {
-    Button CusList, Logout, CusOrder;
+    Button CusList, Logout, CusOrder, Summary;
     private ArrayList<Customer> customerlist = new ArrayList<Customer>();
     private DBHelper DBHelper;
     String fullname;
@@ -37,6 +39,7 @@ public class AdminPage extends AppCompatActivity {
         CusList = findViewById(R.id.btn_cuslist);
         Logout = findViewById(R.id.btn_logout);
         CusOrder = findViewById(R.id.btn_cusorder);
+        Summary = findViewById(R.id.btn_summary);
         tvfullname = findViewById(R.id.adminfullname);
     }
 
@@ -56,6 +59,15 @@ public class AdminPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(AdminPage.this, CustomerOrder.class);
+                startActivity(i);
+
+            }
+        });
+
+        Summary.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(AdminPage.this, com.example.assignment.Summary.class);
                 startActivity(i);
 
             }

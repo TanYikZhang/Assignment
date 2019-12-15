@@ -44,12 +44,9 @@ public class CustomerOrder extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        dbHelper = new DBHelper(this);
-        OrderList = dbHelper.getAllOrder();
-        adapter = new PCHistoryAdapter(OrderList, CustomerOrder.this);
-        ListViewData.setAdapter(adapter);
+        setUpDatabase();
+        setUpAdapter();
     }
-
     private void findViews() {
         ListViewData = findViewById(R.id.lvcusorder);
         Search = findViewById(R.id.edit_searchpc);
@@ -117,11 +114,10 @@ public class CustomerOrder extends AppCompatActivity {
 
     private void setUpDatabase() {
         dbHelper = new DBHelper(this);
+        OrderList = dbHelper.getAllOrder();
     }
 
     private void setUpAdapter() {
-
-        OrderList = dbHelper.getAllOrder();
         adapter = new PCHistoryAdapter(OrderList, this);
         ListViewData.setAdapter(adapter);
     }

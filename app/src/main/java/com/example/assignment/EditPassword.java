@@ -55,7 +55,7 @@ public class EditPassword extends AppCompatActivity {
             public void onClick(View v) {
                 Validate();
                 if (TOF) {
-                    Toast.makeText(EditPassword.this, "Change Successfully", Toast.LENGTH_LONG).show();
+                    Toast.makeText(EditPassword.this, "Change Password Successfully", Toast.LENGTH_LONG).show();
                     //add to database//
                     DBHelper dbHelper = new DBHelper(EditPassword.this);
                     customer.setPassword(setSHA256(password));
@@ -64,7 +64,7 @@ public class EditPassword extends AppCompatActivity {
 
                     //add to database//
                 } else {
-                    Toast.makeText(EditPassword.this, "Register Fail", Toast.LENGTH_LONG).show();
+                    Toast.makeText(EditPassword.this, "Change Password Fail", Toast.LENGTH_LONG).show();
                 }
             }
         });

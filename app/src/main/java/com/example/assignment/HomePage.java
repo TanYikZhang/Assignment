@@ -94,7 +94,6 @@ public class HomePage extends AppCompatActivity {
         for (int i = 0; i < customerlist.size(); i++) {
             if (id == customerlist.get(i).getId()) {
                 tvfullname.setText(customerlist.get(i).getFullname());
-                System.out.println("/////////////////////");
                 if (customerlist.get(i).getAccessControl() != 1) {
                     Admin.setVisibility(View.GONE);
                 }

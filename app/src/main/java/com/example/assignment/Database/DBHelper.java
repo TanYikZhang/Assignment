@@ -388,11 +388,12 @@ public class DBHelper extends SQLiteOpenHelper {
         return OrderPCArrayList;
     }
 
-    public ArrayList<PC> getDatebetween(int x, int y) {
+    public ArrayList<PC> getDatebetween(int year, int month) {
         ArrayList<PC> OrderPCArrayList = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
         //Cursor res = db.rawQuery("SELECT * FROM " + PC.TABLE_NAME + " WHERE "+ PC.COLOMN_DATE +" BETWEEN " + "date('2019-12-12')" + " AND "+ "date('2019-12-18')" + " ORDER BY " + PC.COLOMN_ID + " DESC" , null);
-        Cursor res = db.rawQuery("SELECT * FROM " + PC.TABLE_NAME + " WHERE strftime('%Y %m'," + PC.COLOMN_DATE + ") = '" + x + " " + y + "'", null);
+        Cursor res = db.rawQuery("SELECT * FROM " + PC.TABLE_NAME + " WHERE strftime('%Y %m'," + PC.COLOMN_DATE + ") = '" + year + " " + month + "'", null);
+        //Cursor res = db.rawQuery("SELECT * FROM " + PC.TABLE_NAME + " WHERE strftime('%Y %m'," + PC.COLOMN_DATE + ") = '2019 12'", null);
         res.moveToFirst();
         while (!res.isAfterLast()) {
             PC PC = new PC();

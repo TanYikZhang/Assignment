@@ -12,7 +12,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EditPassword"></activity>
+        <activity
+            android:name=".DateBetweenPC"
+            android:parentActivityName=".Summary"></activity>
+        <activity
+            android:name=".Summary"
+            android:parentActivityName=".Admin.AdminPage" />
+        <activity
+            android:name=".EditPassword"
+            android:parentActivityName=".LoginPage" />
         <activity android:name=".LoginPage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
