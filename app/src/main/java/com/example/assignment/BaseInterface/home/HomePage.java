@@ -84,15 +84,6 @@ public class HomePage extends AppCompatActivity {
         findCusDetails();
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        String x = navigationView.getCheckedItem().toString();
-        if (x.equals("Logout")) {
-            finish();
-        }
-    }
-
 
     private void findCusDetails() {
         tvfullname = headerview.findViewById(R.id.fullname);
