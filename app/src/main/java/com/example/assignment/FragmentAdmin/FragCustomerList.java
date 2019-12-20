@@ -15,7 +15,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.assignment.Adapter.CustomerAdapter;
-import com.example.assignment.Admin.CustomerList;
 import com.example.assignment.Database.DBHelper;
 import com.example.assignment.Model.Customer;
 import com.example.assignment.R;
